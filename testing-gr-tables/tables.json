@@ -12,378 +12,294 @@
     "weakEP": true,
     "wellPosed": {
       "val": "✓",
-      "refs": ["Salgado:2008xh"]
-    },
+      "refs": ["Salgado:2008xh"] },
     "weakFieldConstr": {
       "val": "",
-      "refs": ["Bertotti:2003rm","Alsing:2011er","Freire:2012mg"]
-    },
+      "refs": ["Bertotti:2003rm","Alsing:2011er","Freire:2012mg"] },
     "BHsols": {
       "val": "≡GR",
-      "refs": ["Hawking:1972qk","Heusler:1995qj","Jacobson:1999vr","HeuslerBook","Sotiriou:2011dz","Graham:2014ina"]
-    },
+      "refs": ["Hawking:1972qk","Heusler:1995qj","Jacobson:1999vr","HeuslerBook","Sotiriou:2011dz","Graham:2014ina"] },
     "BHstab": {
       "val": "",
-      "refs": ["Anabalon:2014lea","Damour:1976kh","Detweiler:1980uk","Zouros:1979iw","Cardoso:2004nk","Shlapentokh-Rothman:2013ysa","Cardoso:2013krh"]
-    },
+      "refs": ["Anabalon:2014lea","Damour:1976kh","Detweiler:1980uk","Zouros:1979iw","Cardoso:2004nk","Shlapentokh-Rothman:2013ysa","Cardoso:2013krh"] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Multiscalar",
-    "scalar": ,
-    "pseudoscalar": ,
-    "vector": ,
-    "tensor": ,
-    "strongEP": ,
-    "masslessGraviton": ,
-    "localLorentz": ,
-    "linearT": ,
-    "weakEP": ,
+    "scalar": true,
+    "pseudoscalar": false,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
     "wellPosed": {
-      "val": "",
-      "refs": []
-    },
+      "val": "✓",
+      "refs": ["Choquet-Bruhat:2009xil"] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": ["Damour:1992we"] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
-    "theory": "Metric f(R)",
-    "scalar": ,
-    "pseudoscalar": ,
-    "vector": ,
-    "tensor": ,
-    "strongEP": ,
-    "masslessGraviton": ,
-    "localLorentz": ,
-    "linearT": ,
-    "weakEP": ,
+      "refs": [] }
+  }, {
+    "theory": "Metric $f(R)$",
+    "scalar": true,
+    "pseudoscalar": false,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
     "wellPosed": {
-      "val": "",
-      "refs": []
-    },
+      "val": "✓",
+      "refs": ["LanahanTremblay:2007sg","Paschalidis:2011ww"] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": ["Berry:2011pb"] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Einstein-scalar-Gauss-Bonnet",
-    "scalar": ,
-    "pseudoscalar": ,
-    "vector": ,
-    "tensor": ,
-    "strongEP": ,
-    "masslessGraviton": ,
-    "localLorentz": ,
-    "linearT": ,
-    "weakEP": ,
+    "scalar": true,
+    "pseudoscalar": false,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
     "wellPosed": {
-      "val": "",
-      "refs": []
-    },
+      "val": "✓?",
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": ["Yagi:2012gp"] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Einstein-scalar-Chern-Simons",
-    "scalar": ,
-    "pseudoscalar": ,
-    "vector": ,
-    "tensor": ,
-    "strongEP": ,
-    "masslessGraviton": ,
-    "localLorentz": ,
-    "linearT": ,
-    "weakEP": ,
+    "scalar": false,
+    "pseudoscalar": true,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
     "wellPosed": {
-      "val": "",
-      "refs": []
-    },
+      "val": "✗✓?",
+      "refs": ["Delsate:2014hba"] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": ["AliHaimoud:2011fw"] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Generic quadratic gravity",
-    "scalar": ,
-    "pseudoscalar": ,
-    "vector": ,
-    "tensor": ,
-    "strongEP": ,
-    "masslessGraviton": ,
-    "localLorentz": ,
-    "linearT": ,
-    "weakEP": ,
+    "scalar": true,
+    "pseudoscalar": true,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
     "wellPosed": {
-      "val": "",
-      "refs": []
-    },
+      "val": "?",
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Horndeski",
     "scalar": ,
     "pseudoscalar": ,
@@ -396,58 +312,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Einstein-Æther",
     "scalar": ,
     "pseudoscalar": ,
@@ -460,58 +362,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Khronometric/Hořava-Lifshitz",
     "scalar": ,
     "pseudoscalar": ,
@@ -524,58 +412,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "n-DBI",
     "scalar": ,
     "pseudoscalar": ,
@@ -588,58 +462,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "dRGT/bimetric",
     "scalar": ,
     "pseudoscalar": ,
@@ -652,58 +512,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Galileon",
     "scalar": ,
     "pseudoscalar": ,
@@ -716,58 +562,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Palatini f(R)",
     "scalar": ,
     "pseudoscalar": ,
@@ -780,58 +612,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "Eddington-Born-Infeld",
     "scalar": ,
     "pseudoscalar": ,
@@ -844,58 +662,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "TeVeS",
     "scalar": ,
     "pseudoscalar": ,
@@ -908,58 +712,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "f(R)L_m",
     "scalar": ,
     "pseudoscalar": ,
@@ -972,58 +762,44 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
-  },
-  {
+      "refs": [] }
+  }, {
     "theory": "f(T)",
     "scalar": ,
     "pseudoscalar": ,
@@ -1036,55 +812,42 @@
     "weakEP": ,
     "wellPosed": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "weakFieldConstr": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHsols": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHgeod": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "BHquad": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSNR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSSR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSFR": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NScollapse": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSsens": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSstab": {
       "val": "",
-      "refs": []
-    },
+      "refs": [] },
     "NSgeod": {
       "val": "",
-      "refs": []
-    }
+      "refs": [] }
   }
 ]
