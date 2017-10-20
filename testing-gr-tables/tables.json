@@ -1,0 +1,1090 @@
+[
+  {
+    "theory": "Scalar-tensor",
+    "scalar": true,
+    "pseudoscalar": false,
+    "vector": false,
+    "tensor": false,
+    "strongEP": false,
+    "masslessGraviton": true,
+    "localLorentz": true,
+    "linearT": true,
+    "weakEP": true,
+    "wellPosed": {
+      "val": "✓",
+      "refs": ["Salgado:2008xh"]
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": ["Bertotti:2003rm","Alsing:2011er","Freire:2012mg"]
+    },
+    "BHsols": {
+      "val": "≡GR",
+      "refs": ["Hawking:1972qk","Heusler:1995qj","Jacobson:1999vr","HeuslerBook","Sotiriou:2011dz","Graham:2014ina"]
+    },
+    "BHstab": {
+      "val": "",
+      "refs": ["Anabalon:2014lea","Damour:1976kh","Detweiler:1980uk","Zouros:1979iw","Cardoso:2004nk","Shlapentokh-Rothman:2013ysa","Cardoso:2013krh"]
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Multiscalar",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Metric f(R)",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Einstein-scalar-Gauss-Bonnet",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Einstein-scalar-Chern-Simons",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Generic quadratic gravity",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Horndeski",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Einstein-Æther",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Khronometric/Hořava-Lifshitz",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "n-DBI",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "dRGT/bimetric",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Galileon",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Palatini f(R)",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "Eddington-Born-Infeld",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "TeVeS",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "f(R)L_m",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  },
+  {
+    "theory": "f(T)",
+    "scalar": ,
+    "pseudoscalar": ,
+    "vector": ,
+    "tensor": ,
+    "strongEP": ,
+    "masslessGraviton": ,
+    "localLorentz": ,
+    "linearT": ,
+    "weakEP": ,
+    "wellPosed": {
+      "val": "",
+      "refs": []
+    },
+    "weakFieldConstr": {
+      "val": "",
+      "refs": []
+    },
+    "BHsols": {
+      "val": "",
+      "refs": []
+    },
+    "BHstab": {
+      "val": "",
+      "refs": []
+    },
+    "BHgeod": {
+      "val": "",
+      "refs": []
+    },
+    "BHquad": {
+      "val": "",
+      "refs": []
+    },
+    "NSNR": {
+      "val": "",
+      "refs": []
+    },
+    "NSSR": {
+      "val": "",
+      "refs": []
+    },
+    "NSFR": {
+      "val": "",
+      "refs": []
+    },
+    "NScollapse": {
+      "val": "",
+      "refs": []
+    },
+    "NSsens": {
+      "val": "",
+      "refs": []
+    },
+    "NSstab": {
+      "val": "",
+      "refs": []
+    },
+    "NSgeod": {
+      "val": "",
+      "refs": []
+    }
+  }
+]
