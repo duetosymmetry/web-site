@@ -1,0 +1,8 @@
+input[disabled],select[disabled],textarea[disabled],input[readonly],select[readonly],textarea[readonly] {
+  opacity:unset;
+  cursor:unset;
+}
+table {
+  margin-bottom:unset;
+  border: unset;
+}
