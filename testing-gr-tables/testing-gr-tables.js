@@ -50,16 +50,23 @@ $(function() {
   var bibURL = "biblio.json";
   var bibData = null;
 
-  // need a function to reprocess the output of Bib2JSON into a format
-  // more amenable to js-grid
- 
+  var processBib2JSONEntry = function(entry) {
+    var fields = entry.Fields;
+    fields.ObjectType = entry.ObjectType;
+    fields.EntryType  = entry.EntryType;
+    fields.EntryKey   = entry.EntryKey;
+    return fields;
+  };
+
+  // TODO: Make custom row renderer that formats a bib entry with links
+
   $.ajax({
     type: "GET",
     url: bibURL,
     dataType: "JSON"
   }).done( function(response) {
 
-    bibData = response;
+    bibData = response.map(processBib2JSONEntry);
 
     $("#bibGrid").jsGrid({
       height: "20em",
@@ -91,7 +98,9 @@ $(function() {
       },
 
       fields: [
-        { name: "EntryKey", type: "text" },
+        { name: "title", type: "text", title: "Title" },
+        { name: "year", type: "text", title: "Year" },
+        { name: "journal", type: "text", title: "Journal" },
       ]
     });
 
