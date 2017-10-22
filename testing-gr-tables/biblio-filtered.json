@@ -1,0 +1,494 @@
+[
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Hawking:1972qk",
+  "Fields": {
+   "author": "Hawking, S.W.",
+   "title": "Black holes in the Brans-Dicke theory of gravitation",
+   "journal": "Commun. Math. Phys.",
+   "volume": "25",
+   "pages": "167-171",
+   "doi": "10.1007/BF01877518",
+   "year": "1972",
+   "SLACcitation": "%%CITATION = CMPHA,25,167;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Graham:2014ina",
+  "Fields": {
+   "author": "Graham, Alexander A. H. and Jha, Rahul",
+   "title": "Stationary Black Holes with Time-Dependent Scalar Fields",
+   "journal": "Phys. Rev.",
+   "number": "4",
+   "volume": "D90",
+   "pages": "041501",
+   "doi": "10.1103/PhysRevD.90.041501",
+   "year": "2014",
+   "eprint": "1407.6573",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1407.6573;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Heusler:1995qj",
+  "Fields": {
+   "author": "Heusler, Markus",
+   "title": "The Uniqueness theorem for rotating black hole solutions of selfgravitating harmonic mappings",
+   "journal": "Class. Quantum Grav.",
+   "volume": "12",
+   "pages": "2021-2036",
+   "doi": "10.1088/0264-9381/12/8/017",
+   "year": "1995",
+   "eprint": "gr-qc/9503053",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = GR-QC/9503053;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Sotiriou:2011dz",
+  "Fields": {
+   "author": "Sotiriou, Thomas P. and Faraoni, Valerio",
+   "title": "Black holes in scalar-tensor gravity",
+   "journal": "Phys. Rev. Lett.",
+   "volume": "108",
+   "pages": "081103",
+   "doi": "10.1103/PhysRevLett.108.081103",
+   "year": "2012",
+   "eprint": "1109.6324",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1109.6324;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Foster:2005dk",
+  "Fields": {
+   "author": "Foster, Brendan Z. and Jacobson, Ted",
+   "title": "Post-Newtonian parameters and constraints on Einstein-aether theory",
+   "journal": "Phys. Rev.",
+   "volume": "D73",
+   "pages": "064015",
+   "doi": "10.1103/PhysRevD.73.064015",
+   "year": "2006",
+   "eprint": "gr-qc/0509083",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = GR-QC/0509083;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Jacobson:1999vr",
+  "Fields": {
+   "author": "Jacobson, Ted",
+   "title": "Primordial black hole evolution in tensor scalar cosmology",
+   "journal": "Phys. Rev. Lett.",
+   "volume": "83",
+   "pages": "2699-2702",
+   "doi": "10.1103/PhysRevLett.83.2699",
+   "year": "1999",
+   "eprint": "astro-ph/9905303",
+   "archivePrefix": "arXiv",
+   "primaryClass": "astro-ph",
+   "reportNumber": "NSF-ITP-99-35",
+   "SLACcitation": "%%CITATION = ASTRO-PH/9905303;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "book",
+  "EntryKey": "HeuslerBook",
+  "Fields": {
+   "author": "Heusler, Markus",
+   "title": "Black Hole Uniqueness Theorems",
+   "address": "Cambridge",
+   "publisher": "Cambridge University Press",
+   "year": "1996"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Cardoso:2004nk",
+  "Fields": {
+   "adsurl": "http://adsabs.harvard.edu/abs/2004PhRvD..70d9903C",
+   "archiveprefix": "arXiv",
+   "author": "Cardoso, Vitor and Dias, Oscar J. C. and Lemos, Jose P. S. and Yoshida, Shijun",
+   "doi": "10.1103/PhysRevD.70.044039",
+   "eprint": "hep-th/0404096",
+   "journal": "Phys. Rev.",
+   "pages": "044039",
+   "slaccitation": "%%CITATION = HEP-TH/0404096;%%",
+   "title": "The black hole bomb and superradiant instabilities",
+   "volume": "D70",
+   "year": "2004"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Freire:2012mg",
+  "Fields": {
+   "author": "Freire, Paulo C.C. and Wex, Norbert and Esposito-Farese, Gilles and Verbiest, Joris P.W. and Bailes, Matthew and others",
+   "title": "The relativistic pulsar-white dwarf binary PSR J1738+0333 II. The most stringent test of scalar-tensor gravity",
+   "journal": "Mon. Not. R. Astron. Soc.",
+   "volume": "423",
+   "pages": "3328",
+   "doi": "10.1111/j.1365-2966.2012.21253.x",
+   "year": "2012",
+   "eprint": "1205.1450",
+   "archivePrefix": "arXiv",
+   "primaryClass": "astro-ph.GA",
+   "SLACcitation": "%%CITATION = ARXIV:1205.1450;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Bertotti:2003rm",
+  "Fields": {
+   "author": "Bertotti, B. and Iess, L. and Tortora, P.",
+   "title": "A test of general relativity using radio links with the Cassini spacecraft",
+   "journal": "Nature",
+   "volume": "425",
+   "pages": "374",
+   "doi": "10.1038/nature01997",
+   "year": "2003",
+   "SLACcitation": "%%CITATION = NATUA,425,374;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Salgado:2008xh",
+  "Fields": {
+   "adsurl": "http://adsabs.harvard.edu/abs/2008PhRvD..77j4010S",
+   "archiveprefix": "arXiv",
+   "author": "Salgado, Marcelo and Rio, David Martinez-del and Alcubierre, Miguel and Nunez, Dario",
+   "doi": "10.1103/PhysRevD.77.104010",
+   "eprint": "0801.2372",
+   "journal": "Phys. Rev.",
+   "keywords": "Numerical relativity, Scalar-tensor theories",
+   "pages": "104010",
+   "primaryclass": "gr-qc",
+   "title": "Hyperbolicity of scalar-tensor theories of gravity",
+   "volume": "D77",
+   "year": "2008"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Cardoso:2013krh",
+  "Fields": {
+   "doi": "10.1007/s10714-013-1584-z",
+   "primaryclass": "gr-qc",
+   "author": "Cardoso, Vitor",
+   "journal": "Gen. Relativ. Gravit.",
+   "title": "Black hole bombs and explosions: from astrophysics to particle physics",
+   "pages": "2079-2097",
+   "volume": "45",
+   "eprint": "1307.0038",
+   "slaccitation": "%%CITATION = ARXIV:1307.0038;%%",
+   "year": "2013",
+   "archiveprefix": "arXiv"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Damour:1976kh",
+  "Fields": {
+   "author": "Damour, T. and Deruelle, N. and Ruffini, R.",
+   "title": "On Quantum Resonances in Stationary Geometries",
+   "journal": "Lett. Nuovo Cim.",
+   "volume": "15",
+   "pages": "257-262",
+   "doi": "10.1007/BF02725534",
+   "year": "1976"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Damour:1992we",
+  "Fields": {
+   "author": "Damour, T. and Esposito-Far'ese, G.",
+   "title": "Tensor multiscalar theories of gravitation",
+   "journal": "Class. Quantum Grav.",
+   "volume": "9",
+   "pages": "2093-2176",
+   "doi": "10.1088/0264-9381/9/9/015",
+   "year": "1992"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Detweiler:1980uk",
+  "Fields": {
+   "author": "Detweiler, S.~L.",
+   "title": "Klein-Gordon equation and rotating black holes",
+   "journal": "Phys. Rev.",
+   "volume": "D22",
+   "pages": "2323-2326",
+   "doi": "10.1103/PhysRevD.22.2323",
+   "year": "1980"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Zouros:1979iw",
+  "Fields": {
+   "author": "Zouros, T.J.M. and Eardley, D.M.",
+   "title": "Instabilities of massive scalar perturbations of a rotating black hole",
+   "journal": "Annals Phys.",
+   "volume": "118",
+   "pages": "139-155",
+   "doi": "10.1016/0003-4916(79)90237-9",
+   "year": "1979"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "LanahanTremblay:2007sg",
+  "Fields": {
+   "author": "Lanahan-Tremblay, Nicolas and Faraoni, Valerio",
+   "title": "The Cauchy problem of f(R) gravity",
+   "journal": "Class. Quantum Grav.",
+   "volume": "24",
+   "pages": "5667-5680",
+   "doi": "10.1088/0264-9381/24/22/024",
+   "year": "2007",
+   "eprint": "0709.4414",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:0709.4414;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "AliHaimoud:2011fw",
+  "Fields": {
+   "author": "Ali-Haimoud, Yacine and Chen, Yanbei",
+   "title": "Slowly-rotating stars and black holes in dynamical Chern-Simons gravity",
+   "journal": "Phys. Rev.",
+   "volume": "D84",
+   "pages": "124033",
+   "doi": "10.1103/PhysRevD.84.124033",
+   "year": "2011",
+   "eprint": "1110.5329",
+   "archivePrefix": "arXiv",
+   "primaryClass": "astro-ph.HE",
+   "SLACcitation": "%%CITATION = ARXIV:1110.5329;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Jacobson:2008aj",
+  "Fields": {
+   "author": "Jacobson, Ted",
+   "title": "Einstein-aether gravity: A Status report",
+   "booktitle": "Proceedings, Workshop on From quantum to emergent gravity: Theory and phenomenology (QG-Ph)",
+   "journal": "PoS",
+   "volume": "QG-PH",
+   "year": "2007",
+   "pages": "020",
+   "eprint": "0801.1547",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:0801.1547;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Yagi:2013qpa",
+  "Fields": {
+   "author": "Yagi, Kent and Blas, Diego and Yunes, Nicolas and Barausse, Enrico",
+   "title": "Strong Binary Pulsar Constraints on Lorentz Violation in Gravity",
+   "journal": "Phys. Rev. Lett.",
+   "volume": "112",
+   "pages": "161101",
+   "doi": "10.1103/PhysRevLett.112.161101",
+   "year": "2014",
+   "eprint": "1307.6219",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1307.6219;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Yagi:2013ava",
+  "Fields": {
+   "author": "Yagi, Kent and Blas, Diego and Barausse, Enrico and Yunes, Nicolas",
+   "title": "Constraints on Einstein-Æther theory and Horava gravity from binary pulsar observations",
+   "journal": "Phys. Rev.",
+   "volume": "D89",
+   "pages": "084067",
+   "doi": "10.1103/PhysRevD.89.084067",
+   "year": "2014",
+   "eprint": "1311.7144",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "reportNumber": "CERN-PH-TH-2013-262",
+   "SLACcitation": "%%CITATION = ARXIV:1311.7144;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Alsing:2011er",
+  "Fields": {
+   "author": "Alsing, Justin and Berti, Emanuele and Will, Clifford M. and Zaglauer, Helmut",
+   "title": "Gravitational radiation from compact binary systems in the massive Brans-Dicke theory of gravity",
+   "journal": "Phys. Rev.",
+   "volume": "D85",
+   "pages": "064041",
+   "doi": "10.1103/PhysRevD.85.064041",
+   "year": "2012",
+   "eprint": "1112.4903",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1112.4903;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Anabalon:2014lea",
+  "Fields": {
+   "author": "Anabalon, Andres and Bičák, Jiří and Saavedra, Joel",
+   "title": "Hairy black holes: stability under odd-parity perturbations and existence of slowly rotating solutions",
+   "journal": "Phys. Rev.",
+   "volume": "D90",
+   "pages": "124055",
+   "doi": "10.1103/PhysRevD.90.124055",
+   "year": "2014",
+   "eprint": "1405.7893",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1405.7893;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Yagi:2012gp",
+  "Fields": {
+   "author": "Yagi, Kent",
+   "title": "A New constraint on scalar Gauss-Bonnet gravity and a possible explanation for the excess of the orbital decay rate in a low-mass X-ray binary",
+   "journal": "Phys. Rev.",
+   "volume": "D86",
+   "pages": "081504",
+   "doi": "10.1103/PhysRevD.86.081504",
+   "year": "2012",
+   "eprint": "1204.4524",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1204.4524;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Delsate:2014hba",
+  "Fields": {
+   "author": "Delsate, Térence and Hilditch, David and Witek, Helvi",
+   "title": "The Initial Value Formulation of Dynamical Chern-Simons Gravity",
+   "journal": "Phys. Rev.",
+   "volume": "D91",
+   "pages": "024027",
+   "doi": "10.1103/PhysRevD.91.024027",
+   "year": "2015",
+   "eprint": "1407.6727",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1407.6727;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Berry:2011pb",
+  "Fields": {
+   "author": "Berry, Christopher P.L. and Gair, Jonathan R.",
+   "title": "Linearized f(R) Gravity: Gravitational Radiation and Solar System Tests",
+   "journal": "Phys. Rev.",
+   "volume": "D83",
+   "pages": "104022",
+   "doi": "10.1103/PhysRevD.85.089906, 10.1103/PhysRevD.83.104022",
+   "year": "2011",
+   "eprint": "1104.0819",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1104.0819;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Shlapentokh-Rothman:2013ysa",
+  "Fields": {
+   "author": "Shlapentokh-Rothman, Yakov",
+   "title": "Exponentially growing finite energy solutions for the Klein-Gordon equation on sub-extremal Kerr spacetimes",
+   "journal": "Commun. Math. Phys.",
+   "volume": "329",
+   "pages": "859-891",
+   "doi": "10.1007/s00220-014-2033-x",
+   "year": "2014",
+   "eprint": "1302.3448",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1302.3448;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "article",
+  "EntryKey": "Paschalidis:2011ww",
+  "Fields": {
+   "author": "Paschalidis, Vasileios and Halataei, Seyyed M.H. and Shapiro, Stuart L. and Sawicki, Ignacy",
+   "title": "Constraint propagation equations of the 3+1 decomposition of f(R) gravity",
+   "journal": "Class. Quantum Grav.",
+   "volume": "28",
+   "pages": "085006",
+   "doi": "10.1088/0264-9381/28/8/085006",
+   "year": "2011",
+   "eprint": "1103.0984",
+   "archivePrefix": "arXiv",
+   "primaryClass": "gr-qc",
+   "SLACcitation": "%%CITATION = ARXIV:1103.0984;%%"
+  }
+ },
+ {
+  "ObjectType": "entry",
+  "EntryType": "book",
+  "EntryKey": "Choquet-Bruhat:2009xil",
+  "Fields": {
+   "author": "Choquet-Bruhat, Yvonne",
+   "title": "General Relativity and the Einstein Equations",
+   "publisher": "Oxford University Press",
+   "year": "2009",
+   "SLACcitation": "%%CITATION = INSPIRE-1209065;%%"
+  }
+ }
+]

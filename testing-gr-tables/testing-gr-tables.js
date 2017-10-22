@@ -5,7 +5,7 @@ $(function() {
 
   var tableURL = "tables.json";
 
-  var bibURL = "biblio.json";
+  var bibURL = "biblio-filtered.json";
   var bibData = null;
 
   var processBib2JSONEntry = function(entry) {
