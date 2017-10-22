@@ -6,3 +6,10 @@ table {
   margin-bottom:unset;
   border: unset;
 }
+.jsgrid-alt-row>.my-selected-cell,.jsgrid-row>.my-selected-cell {
+  background:#c4e2ff;
+  border-color:#c4e2ff;
+}
+.refCount {
+  float:right;
+}

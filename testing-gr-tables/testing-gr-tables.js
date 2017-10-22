@@ -1,6 +1,66 @@
 $(function() {
 
+  // ------------------------------------------------------------
+  // Preliminary stuff
+
   var tableURL = "tables.json";
+
+  var bibURL = "biblio.json";
+  var bibData = null;
+
+  var processBib2JSONEntry = function(entry) {
+    var fields = entry.Fields;
+    fields.ObjectType = entry.ObjectType;
+    fields.EntryType  = entry.EntryType;
+    fields.EntryKey   = entry.EntryKey;
+    return fields;
+  };
+
+  // ------------------------------------------------------------
+  // Custom field for entry with bibrefs
+
+  // TODO: Make a custom field for entry with bibrefs
+
+  var MyTextBibField = function(config) {
+    jsGrid.TextField.call(this, config);
+  };
+
+  MyTextBibField.prototype = new jsGrid.TextField({
+
+    // css: "date-field",            // redefine general property 'css'
+    align: "center",              // redefine general property 'align'
+
+    // myCustomProperty: "foo",      // custom property
+
+    sorter: function(entry1, entry2) {
+      if (entry1.val < entry2.val)
+        return -1;
+      if (entry1.val > entry2.val)
+        return 1;
+      return 0;
+    },
+
+    itemTemplate: function(entry) {
+      // TODO: Make this a DOM entry instead, so I can attach a click
+      // handler to it. Set the class so it gets highlighted or not
+      // depending on # of refs.
+      // It should become something like:
+      // <td class="jsgrid-cell jsgrid-align-center" style="width: 30px;">✓<span class="refCount">[2&nbsp;<i class="fa fa-files-o" aria-hidden="true"></i>]</span></td>
+      // QUESTION: Is jsgrid going to attach the classes and styles
+      // for me, or not?
+      var display = entry.val;
+      if (entry.refs.length > 0) {
+        display += '<span class="refCount">[' + entry.refs.length.toString();
+        display += '&nbsp;<i class="fa fa-files-o" aria-hidden="true"></i>]</span>';
+      }
+      return jsGrid.TextField.prototype.itemTemplate(display);
+    },
+  });
+
+  jsGrid.fields.textBib = MyTextBibField;
+
+  // ------------------------------------------------------------
+  // Make the magic happen
 
   $("#theoryPropGrid").jsGrid({
     height: "20em",
@@ -42,21 +102,11 @@ $(function() {
       { name: "localLorentz", type: "checkbox", title: "Lorentz symmetry", width: 25 },
       { name: "linearT", type: "checkbox", title: "Linear \\(T_{\\mu\\nu}\\)", width: 25 },
       { name: "weakEP", type: "checkbox", title: "Weak EP", width: 25 },
+      { name: "wellPosed", type: "textBib", title: "Well posed", width: 30 },
     ]
   });
 
   // ---------- Biblio stuff ----------
-  
-  var bibURL = "biblio.json";
-  var bibData = null;
-
-  var processBib2JSONEntry = function(entry) {
-    var fields = entry.Fields;
-    fields.ObjectType = entry.ObjectType;
-    fields.EntryType  = entry.EntryType;
-    fields.EntryKey   = entry.EntryKey;
-    return fields;
-  };
 
   // TODO: Make custom row renderer that formats a bib entry with links
 
