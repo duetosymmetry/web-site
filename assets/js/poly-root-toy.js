@@ -200,6 +200,20 @@
     'showingDiscRoots': false,
     'discRootPoints': [],
 
+    'updateEquation': function() {
+      var formula_pieces = [];
+      // Lower degrees have a coefficient ai.
+      for (var i = 0; i < this.degree; i++) {
+        formula_pieces.push("a" + i + " x^" + i);
+      }
+      // The higest-degree term has a coefficient of 1.
+      formula_pieces.push("x^" + this.degree);
+      document.getElementById('equationBox').innerHTML = formula_pieces.join(" + ");
+      // TODO: Use escaping and the try toLatex();
+      // If we want to show the actual formula with coefficients, it's easy but ugly:
+      // document.getElementById('equationBox').innerHTML = this.p.toString();
+    },
+
     'updatePolyCoeffsFromRoots': function() {
       this.degree = this.roots.length;
       this.p = Polynomial.fromRoots(this.roots);
@@ -327,6 +341,7 @@
 
             controller.updateRootView();
             controller.updateCoeffView();
+            controller.updateEquation();
           };
         })(this);
     },

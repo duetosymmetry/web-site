@@ -46,6 +46,10 @@ Grab the red dots and play around! Or jump to the
 <input type="number" name="degView" id="degView" class="myDegInput" min="1" max="7" step="1" value="4">
 </form>
 
+<b>Equation:</b>
+<div id="equationBox" class="myLabel" style="">
+</div>
+
 <!------------------------------------------------------------>
 <!-- CODE -->
 
