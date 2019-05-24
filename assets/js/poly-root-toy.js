@@ -210,10 +210,8 @@
       }
       // The higest-degree term has a coefficient of 1.
       formula_pieces.push("x^" + this.degree);
-      document.getElementById('equationBox').innerHTML = formula_pieces.join(" + ");
-      // TODO: Use escaping and the try toLatex();
-      // If we want to show the actual formula with coefficients, it's easy but ugly:
-      // document.getElementById('equationBox').innerHTML = this.p.toString();
+      document.getElementById('equationTextBox').value =
+        formula_pieces.join(" + ") + " = 0";
     },
 
     'updatePolyCoeffsFromRoots': function() {
