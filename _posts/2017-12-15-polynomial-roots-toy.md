@@ -20,6 +20,12 @@ margin-bottom: 1em;
 display: inline-block;
 }
 
+/* Setting height prevents height changing during re-rendering. */
+.myOutputEquation {
+height: 40px;
+text-align: center;
+}
+
 .myDegInput {
 width: 4em;
 }
@@ -41,6 +47,11 @@ Grab the red dots and play around! Or jump to the
 </div>
 <div id="rootbox" class="jxgbox mybox" style="">
 </div>
+
+<div id="equationBox" class="jxgbox myOutputEquation">
+\({a_0 + a_1 x + a_2 x^2 + a_3 x^3 + x^4 = 0}\)
+</div>
+<br>
 
 <form onsubmit="return false;">
 <div>

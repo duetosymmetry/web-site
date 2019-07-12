@@ -233,6 +233,52 @@
     this.degreeInput.oninput();
   };
 
+  /*
+   * Return a string for the X term of that degree.  Usually this returns
+   * "x^degree" but 0 and 1 are special cases.
+   */
+  function buildXTermStr(degree) {
+    if (degree == 0) {
+      // Degree zero is just the coefficient-- no x term.
+      return "";
+    } else if (degree == 1) {
+      // Degree one does not need an exponent (x^1 is redundant).
+      return "x";
+    }
+    return "x^" + degree;
+  }
+
+  /*
+   * Return a string with a polynomial equation up to degree.  Examples:
+   * degree  equation
+   * 1       a0 + x = 0
+   * 2       a0 + a1 x + x^2 = 0
+   * 3       a0 + a1 x + a2 x^2 + x^3 = 0
+   */
+  function buildEquationStr(degree) {
+    var formula_pieces = [];
+    // Generate equation up to (but not including) degree.
+    for (var i = 0; i < degree; i++) {
+      formula_pieces.push("a_" + i + buildXTermStr(i));
+    }
+    // The higest-degree term has a coefficient of 1.
+    formula_pieces.push(buildXTermStr(degree));
+    return formula_pieces.join(" + ") + " = 0";
+  }
+
+  function buildEquationStrOld(degree) {
+    var formula_pieces = [];
+    // Degree zero is just the coefficient.
+    formula_pieces.push("a_0");
+    // Lower degrees have a coefficient ai and x^i.
+    for (var i = 1; i < degree; i++) {
+      formula_pieces.push("a_" + i + " x^" + i);
+    }
+    // The higest-degree term has a coefficient of 1.
+    formula_pieces.push("x^" + degree);
+    return formula_pieces.join(" + ") + " = 0";
+  }
+
   PolyRootController.prototype = {
     'degree': 0,
     'degreeInput': {},
@@ -252,7 +298,16 @@
     'showingDiscRoots': false,
     'discRootPoints': [],
 
-    'updatePolyCoeffsFromRoots': function() {
+   'updateEquation': function() {
+      var math = MathJax.Hub.getAllJax('equationBox')[0];
+      // Make sure MathJax is ready to do stuff.
+      if ( math != null) {
+        var equation = buildEquationStr(this.degree);
+        MathJax.Hub.Queue(["Text",math,equation]);
+      }
+   },    
+
+   'updatePolyCoeffsFromRoots': function() {
       this.degree = this.roots.length;
       this.p = Polynomial.fromRoots(this.roots);
       this.coeffs = this.p.coeffArray();
@@ -371,6 +426,7 @@
             controller.teardownPoints();
 
             controller.setDegreeFromView();
+            controller.updateEquation();
 
             controller.setupRandomRoots();
             controller.updatePolyCoeffsFromRoots();
