@@ -20,9 +20,8 @@ margin-bottom: 1em;
 display: inline-block;
 }
 
-/* Setting height prevents height changing during re-rendering. */
 .myOutputEquation {
-height: 40px;
+min-height: 40px;
 text-align: center;
 }
 

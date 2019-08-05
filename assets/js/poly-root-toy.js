@@ -245,7 +245,14 @@
       // Degree one does not need an exponent (x^1 is redundant).
       return "x";
     }
-    return "x^" + degree;
+    return "x^" + wrap(degree);
+  }
+
+  /*
+   * Wraps the value in a string of enclosing curly braces.  E.g. wrap(10) returns "{10}".
+   */
+  function wrap(value) {
+    return "{" + value + "}";
   }
 
   /*
@@ -259,7 +266,7 @@
     var formula_pieces = [];
     // Generate equation up to (but not including) degree.
     for (var i = 0; i < degree; i++) {
-      formula_pieces.push("a_" + i + buildXTermStr(i));
+      formula_pieces.push("a_" + wrap(i) + buildXTermStr(i));
     }
     // The higest-degree term has a coefficient of 1.
     formula_pieces.push(buildXTermStr(degree));
