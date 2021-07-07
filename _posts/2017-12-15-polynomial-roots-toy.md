@@ -54,6 +54,9 @@ Grab the red dots and play around! Or jump to the
 </div>
 </form>
 
+<label for="equationTextBox" class="myLabel">Equation (generated from degree):</label>
+<input type="text" id="equationTextBox" width="30" disabled>
+
 <!------------------------------------------------------------>
 <!-- CODE -->
 
