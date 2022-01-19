@@ -2,14 +2,18 @@
 title: "Teaching"
 date: 2018-08-20
 permalink: /teaching/
-modified: 2021-08-22
+modified: 2022-01-18
 excerpt:
 tags:
 ---
 
-## Fall 2021
+## Spring 2022
 
 This term I'm lecturing:
+* [Phys 721, Graduate electromagnetism I (course site here)]({{ site.url }}/teaching/2022-spring-phys-721)
+
+## Fall 2021
+
 * [Phys 401, Electromagnetism I (course site here)]({{ site.url }}/teaching/2021-fall-phys-401)
 
 ## Spring 2021
