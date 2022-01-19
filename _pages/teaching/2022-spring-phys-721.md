@@ -10,7 +10,7 @@ tags:
 ## Course info
 
 * [Syllabus in PDF format]({{ site.url }}/files/teaching/2022-spring-phys-721/syllabus.pdf)
-* Class schedule:  MWF 0900--1000, in Lewis 104
+* Class schedule:  MWF 0900--1000, in Lewis 109
 * Office hours:  TBD
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
 * Email: [lcstein@olemiss.edu](mailto:lcstein@olemiss.edu)
