@@ -1,0 +1,12 @@
+---
+layout: null
+sitemap: false
+---
+
+User-agent: *
+Disallow:
+
+User-agent: TurnitinBot
+Disallow: /
+
+Sitemap: {{ 'sitemap.xml' | absolute_url }}
