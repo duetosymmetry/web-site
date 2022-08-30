@@ -2,7 +2,7 @@
 title: "Phys 722, Graduate electromagnetism II (Fall 2022)"
 date: 2022-08-19
 permalink: /teaching/2022-fall-phys-722/
-modified:
+modified: 2022-08-30
 excerpt:
 tags:
 ---
@@ -11,7 +11,7 @@ tags:
 
 * [Syllabus in PDF format]({{ site.url }}/files/teaching/2022-fall-phys-722/syllabus.pdf)
 * Class schedule:  MWF 0900--1000, in Lewis 109
-* Office hours:  TBD
+* Office hours:  Wednesdays 1100, in Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
 * Email: [lcstein@olemiss.edu](mailto:lcstein@olemiss.edu)
 * Office: 205 Lewis Hall
