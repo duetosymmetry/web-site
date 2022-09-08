@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Constraining gravitational wave amplitude birefringence and Chern-Simons gravity with GWTC-2"
-modified:
+modified: 2022-09-08
 categories: pubs
 excerpt:
 tags: [gravity, Chern-Simons, LIGO, beyond-GR, gravitational waves]
 pub:
   authors: "Maria Okounkova, Will M. Farr, Maximiliano Isi, Leo C. Stein"
-  doi:
+  doi: "10.1103/PhysRevD.106.044067"
   arXiv: "2101.11153"
-  jref:
+  jref: "Phys. Rev. D <b>106</b>, 044067 (2022)"
 date: 2021-01-26
 ---
 
@@ -23,9 +23,13 @@ date: 2021-01-26
 > propagation. Such an effect is present in various beyond-GR theories
 > but is absent in GR. We constrain the amount of amplitude
 > birefringence consistent with the data through an opacity parameter
-> $$\kappa$$, which we bound to be $$\kappa \lesssim 0.74 \textrm{
-> Gpc}^{-1}$$. We then use these theory-agnostic results to constrain
-> Chern-Simons gravity, a beyond-GR theory with motivations in
-> quantum gravity. We bound the canonical Chern-Simons lengthscale to
-> be $$\ell_0 \lesssim 1.0 \times 10^3$$ km, improving on previous
-> long-distance measurement results by a factor of two.
+> $$\kappa$$, which we bound to be $$\kappa \lesssim 0.74
+> \textrm{Gpc}^{-1}$$. Our constraint is derived under an assumption
+> that all GWTC-2 events have a common distance. This result for
+> $$\kappa$$ is statistically significant, with a Jensen-Shannon
+> divergence of $$7\times 10^{-2}$$ bits compared to an uninformative
+> distribution on $$\kappa$$.  We then use these theory-agnostic
+> results to constrain Chern-Simons gravity, a beyond-GR theory with
+> motivations in quantum gravity. We bound the canonical Chern-Simons
+> lengthscale to be $$\ell_0 \lesssim 1.0 \times 10^3$$, in agreement
+> with other long-distance measurement results.
