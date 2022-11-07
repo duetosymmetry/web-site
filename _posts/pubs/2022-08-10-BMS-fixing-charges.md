@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Fixing the BMS Frame of Numerical Relativity Waveforms with BMS Charges"
-modified:
+modified: 2022-11-07
 categories: pubs
 excerpt:
 tags: [gravity, gravitational waves, asymptotia, BMS, post-Newtonian, SXS, black holes, general relativity, numerical relativity, symmetry]
 pub:
-  authors: "Keefe Mitman, Leo C. Stein, Michale Boyle, et al."
-  doi:
+  authors: "Keefe Mitman, Leo C. Stein, Michael Boyle, et al."
+  doi: "10.1103/PhysRevD.106.084029"
   arXiv: "2208.04356"
-  jref:
+  jref: "Phys. Rev. D <b>106</b>, 084029 (2022)"
 date: 2022-08-10
 ---
 
