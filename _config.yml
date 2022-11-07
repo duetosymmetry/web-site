@@ -110,6 +110,9 @@ author:
   orcid            : "0000-0001-7559-9597"
   inspire          : "L.C.Stein.2"
   google-scholar   : "6wuRRmcAAAAJ"
+  mastodon         :
+    handle         : "duetosymmetry"
+    instance       : "mastodon.social"
 
 
 # Reading Files
