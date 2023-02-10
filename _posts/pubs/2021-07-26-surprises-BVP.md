@@ -1,16 +1,16 @@
 ---
 layout: pub-link
 title: "Surprises in a classic boundary-layer problem"
-modified:
+modified: 2023-02-09
 categories: pubs
 excerpt:
 tags: [boundary layer, perturbation theory, singular perturbation,
 dynamics, matched asymptotics, higher-order matching, numerical methods, shooting method]
 pub:
   authors: "William A. Clark, Mario W. Gomes, Arnaldo Rodriguez-Gonzalez, Leo C. Stein, and Steven H. Strogatz"
-  doi:
+  doi: "10.1137/21M1436087"
   arXiv: "2107.11624"
-  jref:
+  jref: "SIAM Review 2023 65:1, 291-315"
 date: 2021-07-26
 ---
 
