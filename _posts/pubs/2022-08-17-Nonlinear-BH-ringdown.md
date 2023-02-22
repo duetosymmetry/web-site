@@ -15,6 +15,8 @@ date: 2022-08-17
 
 This article was selected as an ❦ Editors' Suggestion, and [Featured in
 APS's Physics magazine](https://physics.aps.org/articles/v16/29).
+[More press coverage links here]({% post_url
+2023-02-22-Nonlinear-paper-press %}).
 
 ![]({{ site.url }}/images/amp_vs_amp_both_sets_4panels.png)
 {: .align-right style="width: 400px"}
