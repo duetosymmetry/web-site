@@ -3,7 +3,7 @@ title: "Sloan Research Fellowship"
 modified:
 categories: news
 excerpt: "I am honored to have been selected as one of this year's Sloan Research Fellows!"
-tags: []
+tags: [award, fellowship, grant]
 date: 2023-02-15T09:00:00-06:00
 ---
 
