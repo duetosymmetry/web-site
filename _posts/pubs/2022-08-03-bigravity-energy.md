@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Gravitational-wave energy and other fluxes in ghost-free bigravity"
-modified:
+modified: 2023-02-27
 categories: pubs
 excerpt:
 tags: [gravity, gravitational waves, beyond-GR, field theory, conservation laws]
 pub:
   authors: "Alexander M. Grant, Alexander Saffer, Leo C. Stein, Shammi Tahura"
-  doi:
+  doi: "10.1103/PhysRevD.107.044041"
   arXiv: "2208.02123"
-  jref:
+  jref: "Phys. Rev. D <b>107</b>, 044041 (2023)"
 date: 2022-08-03
 ---
 
