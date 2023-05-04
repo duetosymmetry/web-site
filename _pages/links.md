@@ -37,10 +37,10 @@ links you think ought to be here, feel free to suggest them to me.
 
 * arXiv keys:
   I wanted keyboard navigation on the arXiv so I made this
-  [extension for Chrome <i class="fa fa-chrome" aria-hidden="true"></i>](https://chrome.google.com/webstore/detail/arxiv-keys/fkjjdlbhliopfhgddlpoggpmpgjfaojd)
+  [extension for Chrome <i class="fab fa-chrome" aria-hidden="true"></i>](https://chrome.google.com/webstore/detail/arxiv-keys/fkjjdlbhliopfhgddlpoggpmpgjfaojd)
   and
-  [addon for Firefox <i class="fa fa-firefox" aria-hidden="true"></i>](https://addons.mozilla.org/en-US/firefox/addon/arxiv-keys/).
-  You can get the [arXiv-keys source on github <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/arXiv-keys).
+  [addon for Firefox <i class="fab fa-firefox" aria-hidden="true"></i>](https://addons.mozilla.org/en-US/firefox/addon/arxiv-keys/).
+  You can get the [arXiv-keys source on github <i class="fab fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/arXiv-keys).
 * [xAct/xTensor](http://xact.es/): I make xTensive use of (and have
   contributed to) this system for abstract and component tensor math
   in Mathematica.
@@ -57,7 +57,7 @@ links you think ought to be here, feel free to suggest them to me.
     to your list of package-archives.
   * Make sure you have [AUCTeX](https://www.gnu.org/software/auctex/)
   * Make sure you have [magit](https://magit.vc/)
-  * I've made [my `.emacs.d/` directory available on github <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/dotemacsd).
+  * I've made [my `.emacs.d/` directory available on github <i class="fab fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/dotemacsd).
 * [LaTeX](http://www.latex-project.org/)
   * [AUCTeX](https://www.gnu.org/software/auctex/) makes writing LaTeX
   in emacs better.
@@ -67,8 +67,8 @@ links you think ought to be here, feel free to suggest them to me.
     works with [Skim.app](http://skim-app.sourceforge.net/), which is
     a better PDF reader than Apple's Preview.app.
 * [git](http://git-scm.com/): I recommend using git for revision control
-  * [Leo C. Stein on github <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry)
-  * [This web page's repo <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/web-site)
+  * [Leo C. Stein on github <i class="fab fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry)
+  * [This web page's repo <i class="fab fa-github" aria-hidden="true"></i>](https://github.com/duetosymmetry/web-site)
   * [magit](https://magit.vc/) is the best way to use git from emacs.
 * [make-iop-author-list](https://github.com/duetosymmetry/make-iop-author-list): If you find yourself in the unenviable position of needing to create
   a long LaTeX author list for an IOP publication, then you don't get
