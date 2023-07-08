@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Action-angle variables of a binary black-hole with arbitrary eccentricity, spins, and masses at 1.5 post-Newtonian order"
-modified:
+modified: 2023-07-08
 categories: pubs
 excerpt:
 tags: [black holes, gravity, general relativity, integrability, post-Newtonian, dynamics]
 pub:
   authors: "Sashwat Tanay, Gihyuk Cho, Leo C. Stein"
-  doi:
+  doi: "10.1103/PhysRevD.107.103040"
   arXiv: "2110.15351"
-  jref:
+  jref: "Phys. Rev. D <b>107</b>, 103040 (2023)"
 date: 2021-10-29
 ---
 
