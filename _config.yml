@@ -149,6 +149,8 @@ exclude:
   - lrr-index/Makefile
   - lrr-index/*.txt
   - lrr-index/*.xml
+  - lrr-index/*.json
+  - lrr-index/*.ipynb
   - lrr-index/*.py
   - testing-gr-tables/Makefile
   - testing-gr-tables/Parser.js
