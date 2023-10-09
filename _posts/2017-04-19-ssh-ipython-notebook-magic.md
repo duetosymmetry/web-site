@@ -14,7 +14,7 @@ local machine, or mount the remote drive.  But ideally, the `jupyter`
 server should run on the remote machine, so that only the much smaller
 *web page* data is transferred.  This is what you want to happen:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rfGnFiO9sME" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rfGnFiO9sME?si=mnJu2a2pLI2JKQ53" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 If you've ever started `jupyter` locally, this will look familiar.
 But if you launch it on the remote machine, then `jupyter` is going to
