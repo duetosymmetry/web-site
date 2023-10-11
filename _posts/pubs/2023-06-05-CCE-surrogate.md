@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Numerical relativity surrogate model with memory effects and post-Newtonian hybridization"
-modified:
+modified: 2023-10-11
 categories: pubs
 excerpt:
 tags: [gravity, gravitational waves, numerical relativity, LIGO, black holes]
 pub:
   authors: "Jooheon Yoo, Keefe Mitman, Vijay Varma, Michael Boyle, Scott E. Field, Nils Deppe, François Hébert, Lawrence E. Kidder, Jordan Moxon, Harald P. Pfeiffer, Mark A. Scheel, Leo C. Stein, Saul A. Teukolsky, William Throwe, Nils L. Vu"
-  doi:
+  doi: "10.1103/PhysRevD.108.064027"
   arXiv: "2306.03148"
-  jref:
+  jref: "Phys. Rev. D <b>108</b>, 064027 (2023)"
 date: 2023-06-05
 ---
 
