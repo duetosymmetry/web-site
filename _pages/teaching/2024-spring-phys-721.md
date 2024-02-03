@@ -2,7 +2,7 @@
 title: "Phys 721, Graduate electromagnetism I (Spring 2024)"
 date: 2024-01-27
 permalink: /teaching/2024-spring-phys-721/
-modified:
+modified: 2024-02-03
 excerpt:
 tags:
 ---
@@ -11,7 +11,7 @@ tags:
 
 * [Syllabus in PDF format]({{ site.url }}/files/teaching/2024-spring-phys-721/syllabus.pdf)
 * Class schedule:  MWF 0900--1000, in Lewis 109
-* Office hours:  TBD, Lewis 205
+* Office hours:  F 1100--1200, Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
 * Email: [lcstein@olemiss.edu](mailto:lcstein@olemiss.edu)
 * Office: 205 Lewis Hall
