@@ -1,0 +1,7 @@
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Leo C. Stein",
+      "url" : "https://duetosymmetry.com",
+      "sameAs" : ["https://scholar.google.com/citations?user=6wuRRmcAAAAJ","https://twitter.com/duetosymmetry","https://www.facebook.com/leo.stein/"]
+    }
