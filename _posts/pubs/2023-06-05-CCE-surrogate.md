@@ -4,7 +4,7 @@ title: "Numerical relativity surrogate model with memory effects and post-Newton
 modified: 2023-10-11
 categories: pubs
 excerpt:
-tags: [gravity, gravitational waves, numerical relativity, LIGO, black holes]
+tags: [SXS, surrogate, BMS, hybrid, gravity, gravitational waves, numerical relativity, LIGO, black holes]
 pub:
   authors: "Jooheon Yoo, Keefe Mitman, Vijay Varma, Michael Boyle, Scott E. Field, Nils Deppe, François Hébert, Lawrence E. Kidder, Jordan Moxon, Harald P. Pfeiffer, Mark A. Scheel, Leo C. Stein, Saul A. Teukolsky, William Throwe, Nils L. Vu"
   doi: "10.1103/PhysRevD.108.064027"

@@ -4,7 +4,7 @@ title: "Black holes, gravitational waves and fundamental physics: a roadmap"
 modified:
 categories: pubs
 excerpt:
-tags: [black holes, gravity, general relativity, surrogate]
+tags: [black holes, gravity, general relativity]
 pub:
   authors: "Barack et al."
   doi: "10.1088/1361-6382/ab0587"
