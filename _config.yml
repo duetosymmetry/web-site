@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Leo C. Stein"
 title_separator          : "-"
 name                     : "Leo C. Stein"
-description              : "Assistant Professor @ U of MS. Specializing in gravity and general relativity."
+description              : "Physics Professor @ U of MS. Specializing in gravity and general relativity."
 url                      : "https://duetosymmetry.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -80,7 +80,7 @@ analytics:
 author:
   name             : "Leo C. Stein"
   avatar           : "leo-color-head-shot.jpg"
-  bio              : "Asst. Professor, U of MS. Black holes, gravitational waves, general relativity and beyond."
+  bio              : "Physics Professor, U of MS. Black holes, gravitational waves, general relativity and beyond."
   location         : "Oxford, MS"
   email            : "lcstein@olemiss.edu"
   uri              :
