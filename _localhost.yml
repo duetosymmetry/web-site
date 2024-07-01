@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Leo C. Stein"
 title_separator          : "-"
 name                     : "Leo C. Stein"
-description              : "Assistant Professor @ Ole Miss. Specializing in gravity and general relativity."
+description              : "Physics Professor @ U of MS. Specializing in gravity, general relativity, black holes, gravitational waves, numerical relativity"
 url                      : "http://127.0.0.1:4000" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -79,7 +79,7 @@ analytics:
 author:
   name             : "Leo C. Stein"
   avatar           : "leo-color-head-shot.jpg"
-  bio              : "Asst. Professor, Ole Miss. Black holes, gravitational waves, general relativity and beyond."
+  bio              : "Physics Professor, U of MS. Black holes, gravitational waves, general relativity and beyond."
   location         : "Oxford, MS"
   email            : "lcstein@olemiss.edu"
   uri              :
@@ -90,7 +90,7 @@ author:
   facebook         : "leo.stein"
   foursquare       :
   github           : "duetosymmetry"
-  google_plus      : "LeoStein"
+  google_plus      :
   keybase          :
   instagram        :
   lastfm           :
@@ -108,8 +108,11 @@ author:
   # Custom author fields follow
   arxiv            : "stein_l_1"
   orcid            : "0000-0001-7559-9597"
-  inspire          : "L.C.Stein.2"
+  inspire          : "1056947"
   google-scholar   : "6wuRRmcAAAAJ"
+  mastodon         :
+    handle         : "duetosymmetry"
+    instance       : "mastodon.social"
 
 
 # Reading Files
@@ -139,12 +142,15 @@ exclude:
   - Rakefile
   - README
   - tohost.sh
+  - rsync-exclude
   - tmp
   - page-archive.html
   - collection-archive.html
   - lrr-index/Makefile
   - lrr-index/*.txt
   - lrr-index/*.xml
+  - lrr-index/*.json
+  - lrr-index/*.ipynb
   - lrr-index/*.py
   - testing-gr-tables/Makefile
   - testing-gr-tables/Parser.js

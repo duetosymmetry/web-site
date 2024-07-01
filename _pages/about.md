@@ -2,7 +2,7 @@
 title: About
 tags:
 permalink: /about/
-modified: 2019-11-21
+modified: 2024-07-01
 header:
   overlay_image: apple-eye.jpg
   overlay_filter: 0.3
@@ -11,7 +11,7 @@ header:
 ![]({{ site.url }}/images/leo-chalkboard-new-scaled.jpg)
 {: .align-right style="width: 375px"}
 
-I am currently an Assistant Professor of
+I am currently an Associate Professor of
 [Physics and Astronomy](http://physics.olemiss.edu/) at the
 [University of Mississippi](http://www.olemiss.edu/).
 
