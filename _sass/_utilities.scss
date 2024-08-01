@@ -285,6 +285,10 @@ body:hover .visually-hidden button {
 
   /* custom 'brand' colors */
 
+  .fa-bluesky {
+    color: $bluesky-color;
+  }
+
   .ai-orcid,
   .ai-orcid-square {
     color: $orcid-color;

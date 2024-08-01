@@ -113,6 +113,7 @@ author:
   mastodon         :
     handle         : "duetosymmetry"
     instance       : "mastodon.social"
+  bsky             : "duetosymmetry.com"
 
 
 # Reading Files
