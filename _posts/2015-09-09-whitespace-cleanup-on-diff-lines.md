@@ -25,7 +25,7 @@ it was time to automate things and learn some rudimentary
 [`elisp`](https://en.wikipedia.org/wiki/Emacs_Lisp) in the process.
 Without further ado:
 
-{% highlight elisp linenos %}
+```elisp
 (defun buffer-file-git-diff-regions () ""
   (or (magit-git-dir) (error "Dir NOT in a git repo: %s" default-directory))
   (let ((file (buffer-file-name)))
@@ -51,7 +51,7 @@ Without further ado:
 (defun whitespace-cleanup-git-diff-regions () ""
   (interactive)
   (buffer-file-git-diff-regions-apply 'whitespace-cleanup-region))
-{% endhighlight %}
+```
 
 The end-user command is `whitespace-cleanup-git-diff-regions`, which
 you can run interactively from a file that’s under `git` control.  Though you can also

@@ -30,6 +30,7 @@ Date:   Wed Aug 14 13:35:23 2024 -0400
 leo@conservation:spectre> git checkout refs/pullreqs/6218
 leo@conservation:spectre> git switch -c workOnHelpingThisPR
 ```
+{: .no-copy}
 and then you'll be at work on top of this PR. This means you don't
 have to go find and add the remote for this PR.
 
@@ -52,6 +53,7 @@ Now from inside your favorite repo, you can do:
 leo@conservation:myrepo> git addFetchGithubPRs [remoteName]
 Added refspec
 ```
+{: .no-copy}
 The default `remoteName` is `origin`, but by changing the alias above,
 you can make it be something else (like `upstream`). If the remote
 doesn't exist, you get an error. If the refspec already existed, it

@@ -14,20 +14,6 @@ figure.highlight {
   background-color: $code-background-color;
   box-shadow: $box-shadow;
 
-  &:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.5em;
-    background-color: $lighter-gray;
-    content: "\f121";
-    font-family: "Font Awesome 6 Free" !important;
-    font-weight: bold;
-    line-height: 1;
-    text-transform: none;
-    speak: none;
-  }
-
   .highlight {
     margin: 0;
     padding: 1em;
