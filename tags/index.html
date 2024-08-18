@@ -23,7 +23,7 @@ Browse by:
   <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }} </strong>
   <span itemprop="keywords">
 {% for tag in group_names %}
-  <a href="#{{ tag | slugify }}" class="page__taxonomy-item" rel="tag">{{ tag }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
+  <a href="#{{ tag | slugify }}" class="page__taxonomy-item" rel="tag">{{ tag }} ({{ group_items[forloop.index0] | size }})</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
 {% endfor %}
   </span>
 </p>
