@@ -11,7 +11,7 @@ tags:
 
 * [Syllabus in PDF format]({{ site.url }}/files/teaching/2024-fall-phys-735/syllabus.pdf)
 * Class schedule:  MWF 1500--1550, in Lewis 109
-* Office hours:  TBD
+* Office hours:  W 1600--1700, in Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
 * Email: [lcstein@olemiss.edu](mailto:lcstein@olemiss.edu)
 * Office: 205 Lewis Hall
