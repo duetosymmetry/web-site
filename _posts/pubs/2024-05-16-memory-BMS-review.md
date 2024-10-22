@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "A Review of Gravitational Memory and BMS Frame Fixing in Numerical Relativity"
-modified:
+modified: 2024-10-22
 categories: pubs
 excerpt:
 tags: [BMS, hybrid, post-Newtonian, SXS, asymptotia, group theory, gravity, gravitational waves, general relativity, numerical relativity, black holes]
 pub:
   authors: "Keefe Mitman, Michael Boyle, Leo C. Stein, Nils Deppe, Lawrence E. Kidder, Jordan Moxon, Harald P. Pfeiffer, Mark A. Scheel, Saul A. Teukolsky, William Throwe, Nils L. Vu"
-  doi:
+  doi: "10.1088/1361-6382/ad83c2"
   arXiv: "2405.08868"
-  jref:
+  jref: "Class. Quantum Grav. <b>41</b> 223001 (2024)"
 date: 2024-05-16
 ---
 
