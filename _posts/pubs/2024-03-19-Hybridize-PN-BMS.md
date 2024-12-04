@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Optimizing post-Newtonian parameters and fixing the BMS frame for numerical-relativity waveform hybridizations"
-modified:
+modified: 2024-11-27
 categories: pubs
 excerpt:
 tags: [BMS, hybrid, post-Newtonian, SXS, asymptotia, gravity, gravitational waves, general relativity, numerical relativity, black holes]
 pub:
   authors: "Dongze Sun, Michael Boyle, Keefe Mitman, Mark A. Scheel, Leo C. Stein, Saul A. Teukolsky, Vijay Varma"
-  doi:
+  doi: "10.1103/PhysRevD.110.104076"
   arXiv: "2403.10278"
-  jref:
+  jref: "Phys. Rev. D <b>110</b>, 104076 (2024)"
 date: 2024-03-19
 ---
 
