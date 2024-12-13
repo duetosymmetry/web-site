@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Imprints of Changing Mass and Spin on Black Hole Ringdown"
-modified:
+modified: 2024-12-13
 categories: pubs
 excerpt:
 tags: [gravity, gravitational waves, general relativity, numerical relativity, perturbation theory, black holes, nonlinear, ringdown]
 pub:
   authors: "Hengrui Zhu, Frans Pretorius, Sizheng Ma, Robert Owen, Yitian Chen, Nils Deppe, Lawrence E. Kidder, Maria Okounkova, Harald P. Pfeiffer, Mark A. Scheel, Leo C. Stein"
-  doi:
+  doi: "10.1103/PhysRevD.110.124028"
   arXiv: "2404.12424"
-  jref:
+  jref: "Phys. Rev. D <b>110</b>, 124028 (2024)"
 date: 2024-04-22
 ---
 
