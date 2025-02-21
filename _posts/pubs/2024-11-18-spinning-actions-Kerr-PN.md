@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Actions of spinning compact binaries: Spinning particle in Kerr matched to dynamics at 1.5 post-Newtonian order"
-modified:
+modified: 2025-02-21
 categories: pubs
 excerpt:
 tags: [gravity, gravitational waves, general relativity, integrability, chaos, post-Newtonian, dynamics, perturbation theory, black holes, LISA, EMRI]
 pub:
   authors: "Vojtěch Witzany, Viktor Skoupý, Leo Stein, Sashwat Tanay"
-  doi:
+  doi: "10.1103/PhysRevD.111.044032"
   arXiv: "2411.09742"
-  jref:
+  jref: "Phys. Rev. D <b>111</b>, 044032 (2025)"
 date: 2024-11-18
 ---
 
