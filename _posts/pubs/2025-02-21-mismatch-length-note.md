@@ -7,9 +7,9 @@ excerpt:
 tags: [gravity, gravitational waves, general relativity, numerical relativity, black holes, SXS, LIGO, LISA]
 pub:
   authors: "Keefe Mitman, Leo C. Stein, Michael Boyle, Nils Deppe, Lawrence E. Kidder, Harald P. Pfeiffer, Mark A. Scheel"
-  doi:
+  doi: "10.1088/1361-6382/add8d9"
   arXiv: "2502.14025"
-  jref:
+  jref: "Class. Quantum Grav. <b>42</b> 117001 (2025)"
 date: 2025-02-21
 ---
 
