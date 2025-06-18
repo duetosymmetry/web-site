@@ -105,6 +105,9 @@ Q^{j_{1}j_{2}\cdots j_{\ell}} \equiv \int
   .
 \end{align}
 </div>
+For example, the $$\ell=0$$ case is just the total charge $$Q = \int
+\rho(\bs{x}) \ d^{3} \bs{x}$$; the $$\ell=1$$ case is the charge dipole
+$$p^i=Q^i=\int \rho(\bs{x}) x^i \ d^{3} \bs{x}$$, and so on.
 
 # Magnetostatic multipole expansion
 
@@ -361,8 +364,8 @@ gauge, and can be removed by a gauge transformation (see Damour and Iyer for all
 the details).
 
 The two minus signs and placement of the factor of $$\ell/(\ell+1)$$ were chosen
-to agree with the traditional definition for the magnetic dipole vector.  We can
-write the magnetic STF multipole tensor in terms of the integral
+to agree with the traditional definition for the magnetic dipole pseudo-vector.
+We can write the magnetic STF multipole tensor in terms of the integral
 <div>
 \begin{align}
   M^{j_1j_2\cdots j_\ell}
@@ -380,6 +383,8 @@ from Jackson)
 \,.
 \end{align}
 </div>
+With these conventions, $$M^i=m^i$$ agrees with the traditional magnetic dipole
+pseudo-vector.
 
 We can finally restate $$A^{k}$$ and $$B^{i}$$ in terms of these magnetic
 STF moments, after a bit of algebra:
