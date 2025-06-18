@@ -1,6 +1,6 @@
 ---
 title: "Notes: Magnetostatic multipole expansion using STF tensors"
-modified:
+modified: 2025-06-17
 categories: [notes]
 excerpt: "How to do the STF multipole expansion of the magnetic potential and field (it's been on my TODO list for a while)"
 tags: [electromagnetism, multipole, tensor]
@@ -21,10 +21,17 @@ These notes are intended for students (or profs) aware of the
 multipole expansion for electrostatics in terms of symmetric tracefree
 (STF) tensors.  Standard texts on electrodynamics (like Jackson)
 hardly mention the STF version, though it is extremely well-known to
-researchers in GR.  After I developed these notes, [Julio
-Parra-Martinez](https://julioparramartinez.me/) pointed me to [a paper
-by Andreas Ross](https://arxiv.org/abs/1202.4750) which implicitly
-includes these results, though I want to explain a bit more slowly.
+researchers in GR.
+
+**Update 2025-06-17**: I am updating these notes because of two issues.  First,
+Alan Guth pointed out to me, I missed terms that were pure gauge (I incorrectly
+claimed they vanished). Second, [Cyril
+Pitrou](https://www2.iap.fr/users/pitrou/) pointed out to me [this lovely paper
+by Damour and Iyer
+(1991)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.43.3259) which
+does the whole dynamical case (i.e. the radiative multipole expansion), and
+pointed out that I had a factor which is only correct in the dipole
+case. Therefore I am cleaning up my error and reworking some of the discussion.
 
 # Refresher: Electrostatic STF multipole expansion
 
@@ -85,14 +92,14 @@ Plugging this in to the Green's function integral, we get
   \frac{(-1)^\ell}{\ell!}
   \left(
     \pd_{j_1} \pd_{j_2} \cdots \pd_{j_\ell} \frac{1}{r}
-  \right) M^{j_{1}j_{2}\cdots j_{\ell}} ,
+  \right) Q^{j_{1}j_{2}\cdots j_{\ell}} ,
 \end{align}
 </div>
 where we have defined the $$\ell$$th STF multipole tensor of the
 source as
 <div>
 \begin{align}
-M^{j_{1}j_{2}\cdots j_{\ell}} \equiv \int
+Q^{j_{1}j_{2}\cdots j_{\ell}} \equiv \int
   \rho(\bs{x}) x^{\langle j_1} x^{j_2} \cdots x^{j_\ell \rangle}
   \ d^{3} \bs{x}
   .
@@ -145,14 +152,14 @@ participate in the STF operation.  As it stands, our solution is
   \frac{(-1)^\ell}{\ell!}
   \left(
     \pd_{j_1} \pd_{j_2} \cdots \pd_{j_\ell} \frac{1}{r}
-  \right) \mathcal{M}^{i;j_{1}j_{2}\cdots j_{\ell}} \,,
+  \right) G^{i;j_{1}j_{2}\cdots j_{\ell}} \,,
 \end{align}
 </div>
-where the magnetic multipole moments are defined as
+where we defined some moment integrals
 <div>
 \begin{align}
   \label{eq:Bstatic-mpole-tensor-def}
-  \mathcal{M}^{i;j_{1}j_{2}\cdots j_{\ell}}
+  G^{i;j_{1}j_{2}\cdots j_{\ell}}
   \equiv
   \int
   J^{i}(\bs{x})
@@ -175,13 +182,15 @@ integration by parts:
   =
   -\int J^{i}\delta_{i}^{j} \ d^{3} \bs{x}
   =
-  - \mathcal{M}^{i}
+  - G^{i}
   \,.
 \end{align}
 </div>
 The left hand side vanishes since in magnetostatics,
 $$\cd\cdot\bs{J}=0$$.  Therefore the $$\ell=0$$ magnetic monopole moment
-vanishes, $$\mathcal{M}^{i}=0$$.
+vanishes, $$G^{i}=0$$.  [As an exercise, try a similar approach with $$\int
+  (\pd_i J^i) x^{j_{1}}x^{j_{2}}\cdots x^{j_{\ell}}
+  \ d^{3}\bs{x}$$, and see if you can generate an identity for arbitrary $$\ell$$.]
 
 Before handling the arbitrary $$\ell$$ term, let's write the dipole in
 the traditional form seen in e.g. Griffiths.  The traditional form for
@@ -196,8 +205,8 @@ Here the magnetic dipole pseudo-vector is related to the 2-index
 magnetic dipole tensor,
 <div>
 \begin{align}
-  m^{i} &= \frac{1}{2} \epsilon^{ijk} \mathcal{M}_{k;j} \,, &
-  \mathcal{M}^{k;j} &= \epsilon^{jki} m_{i} \,,\\
+  m^{i} &= \frac{1}{2} \epsilon^{ijk} G_{k;j} \,, &
+  G^{k;j} &= \epsilon^{jki} m_{i} \,,\\
   \bs{m} &= \frac{1}{2} \int \bs{x} \times \bs{J}(\bs{x}) \ d^{3}\bs{x}
   \,.
 \end{align}
@@ -210,42 +219,14 @@ This gives the ideal dipole magnetic field
   \,,
 \end{align}
 </div>
-except that we have dropped the singular
+except that we have dropped a singular
 $$\mu_{0}m^{i}\delta_{(3)}(\bs{x})$$ term.
 
+## Aside on Young tableau and STF decomposition
+
 It seems like we've discarded some information --- only the
-antisymmetric part of $$\mathcal{M}^{i;j}$$ contributed to $$m^{i}$$.
-What about the symmetric part?  This exactly vanishes, and that
-generalizes to all higher $$\ell$$.  The proof follows similarly to why
-$$\mathcal{M}^{i}$$ vanished above.  Use that $$\cd\cdot\bs{J}=0$$, and
-integrate this divergence against $$x^{j_{1}}x^{j_{2}}\cdots
-x^{j_{\ell}}$$,
-<div>
-\begin{align}
-  0 &= -\int (\pd_{i}J^{i})x^{j_{1}}x^{j_{2}}\cdots x^{j_{\ell}}
-  \ d^{3}\bs{x} \\
-  &= +\int J^{i} \pd_{i}
-  \left(
-    x^{j_{1}}x^{j_{2}}\cdots x^{j_{\ell}}
-  \right) \ d^{3}\bs{x} \\
-  &=
-  \int J^{i}
-  \left[
-    \delta_{i}^{j_{1}}x^{j_{2}}\cdots x^{j_{\ell}}
-    +
-    x^{j_{1}}\delta_{i}^{j_{2}}x^{j_{3}}\cdots x^{j_{\ell}}
-  \right. \nn\\
-  &\qquad\qquad
-  \left.
-    + \ldots + x^{j_{1}}x^{j_{2}}\cdots x^{j_{\ell-1}} \delta_{i}^{j_{\ell}}
-  \right]\ d^{3}\bs{x} \\
-  &= \ell \int J^{(j_{1}} x^{j_{2}}\cdots x^{j_{\ell})}
-  \ d^{3}\bs{x} \,.
-\end{align}
-</div>
-What we found is that the completely symmetric part of
-$$\mathcal{M}^{i;j_{1}\cdots j_{\ell-1}}$$ vanishes (in fact it vanishes
-even before removing the traces on the indices after the semicolon).
+antisymmetric part of $$G^{i;j}$$ contributed to $$m^{i}$$.
+What about the symmetric part?  It turns out nothing has been lost.
 
 The next step for understanding these magnetic multipole tensors
 requires a little knowledge of how Young diagrams classify the index
@@ -276,74 +257,129 @@ $$(\ell+1)$$ diagram, and the $$(\ell,1)$$ diagram, having shapes
 
 ![Two Young tableaux, one of shape (ell+1), one of shape (ell,1)]({{ site.url }}/images/yt-lp1-and-l1.png){: .align-center }
 
-However, above we showed that the completely symmetric part, labeled
-by $$(\ell+1)$$, vanishes.  Therefore, we have shown that each
-$$\mathcal{M}^{i;j_{1}\cdots j_{\ell}}$$ lives in the $$(\ell,1)$$
-diagram, and this means the $$i$$ index is antisymmetric with each $$j$$
-index.
+These above statements were for Young tableaux labeling the representations of
+GL(3).  Once we introduce our metric $$\delta_{ij}$$ and go to SO(3), we can do
+a further trace decomposition.  At the same time we've also introduced the
+Levi-Civita tensor $$\epsilon_{ijk}$$, which lives in the irrep labeled by 3
+boxes stacked vertically.  We can use the Levi-Civita tensor to dualize $$p$$
+antisymmetric indices to $$3-p$$ indices, which is how we replaced $$G^{i;j}$$
+with $$m^i$$.  The ultimate goal is to decompose arbitrary tensors into
+combinations of STF tensors, $$\delta_{ij}$$, and $$\epsilon_{ijk}$$.
 
-Because of the antisymmetry between $$i$$ and any one of the $$j$$'s, we
-are free to insert a projector in the space of 2-forms,
+To do this we can use a rule from [Blanchet and Damour
+(1986)](https://www2.iap.fr/users/blanchet/images/Structure_gravitational_field_BD_1986.pdf)
+which is also in [Damour and Iyer
+(1991)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.43.3259).  You
+can build the decomposition inductively starting from the tensor product of just
+a single vector with an $$\ell$$-index STF tensor (here we use STF multindex notation)
 <div>
 \begin{align}
-  \mathcal{M}^{i;j_{1}j_{2}\cdots j_{\ell}}
-  = \delta^{i}_{[k}\delta^{j_{1}}_{p]} \mathcal{M}^{k;pj_{2}\cdots j_{\ell}}
-  = \tfrac{1}{2}\epsilon^{ij_{1}q}\epsilon_{qkp} \mathcal{M}^{k;pj_{2}\cdots j_{\ell}}
-  \,.
+  \label{eq:vec-STF-prod-decomp}
+  U_i \hat{T}_{L} = \hat{R}_{iL}^{(+)} 
+  + \frac{\ell}{\ell+1} \epsilon_{si\langle i_\ell} \hat{R}^{(0)}_{L-1\rangle s}
+  + \frac{2\ell-1}{2\ell+1} \delta_{i\langle i_\ell} \hat{R}^{(-)}_{L-1\rangle}
 \end{align}
 </div>
-This motivates defining an auxiliary tensor $$m$$, like in the dipole
-case,
+where everything with a hat is STF, and the three pieces on the RHS are
 <div>
 \begin{align}
-  \label{eq:mstatic-mpole-and-dual-rels}
-  m^{k j_{2}j_{3}\cdots j_{\ell}} &\equiv -\tfrac{1}{2} \epsilon^{k}{}_{i j_{1}} \mathcal{M}^{i;j_{1}j_{2}\cdots j_{\ell}}
-  \,, &
-  \mathcal{M}^{i;j_{1}j_{2}\cdots j_{\ell}} &=
-  -\epsilon^{ij_{1}}{}_{k} m^{k j_{2}j_{3}\cdots j_{\ell}}
-  \,.
+  \hat{R}_{L+1}^{(+)} &= U_{\langle i_{\ell+1}} \hat{T}_{L\rangle} \,,\\
+  \hat{R}^{(0)}_{L} &= U_a \hat{T}_{b\langle L-1} \epsilon_{i_\ell \rangle ab} \,,\\
+  \hat{R}^{(-)}_{L-1} &= U_s \hat{T}_{s L-1} \,.
 \end{align}
 </div>
-The two minus signs (which cancel) are here to agree with the
-traditional notation for the magnetic dipole vector.  We can insert
-the integral expression,
+This is akin to $$\boldsymbol{1}\otimes \boldsymbol{\ell} = (\boldsymbol{\ell -
+1}) \oplus \boldsymbol{\ell} \oplus (\boldsymbol{\ell+1})$$ in angular momentum
+coupling.  Let me comment here: Blanchet and Damour say that this expression
+(which is their (A3)) is "straightforwardly checked." I did check it, but there
+is a lot of room for error! Two intermediate steps you need are:
 <div>
 \begin{align}
-  m^{k j_{2}j_{3}\cdots j_{\ell}}
-  =
-  \int -\tfrac{1}{2} \epsilon^{k}{}_{i j_{1}} J^{i}
-  x^{\langle j_{1}} x^{j_{2}} \cdots x^{j_{\ell}\rangle} d^{3}x
-  \,.
+  \delta_{a\langle i_{\ell+1}} \hat{T}_{L\rangle} &= \delta_{a(i_{\ell+1}}
+  \hat{T}_{L)} - \frac{\ell}{2\ell+1} \hat{T}_{a(L-1} \delta_{i_\ell i_{\ell+1})} \,,\\
+  \epsilon_{ab\langle i_\ell} \hat{T}_{L-1\rangle a} &=
+  \epsilon_{ab( i_\ell} \hat{T}_{L-1) a} \quad \text{(already tracefree)}
+\end{align}
+</div>
+Getting all these $$\ell$$-dependent coefficients requires a bit of combinatorics.
+For example, suppose we want to trace $$\hat{T}_{a(L-1} \delta_{i_\ell i_{\ell+1})}$$
+on the $$(i_\ell i_{\ell+1})$$ indices.  There are a total of
+$$\binom{\ell+1}{2}$$ distinct terms (counting which two indices appear on the
+$$\delta$$):
+<div>
+\begin{align}
+\hat{T}_{a(L-1} \delta_{i_\ell i_{\ell+1})}
+=
+\frac{1}{(\ell+1)\ell/2}
+\underbrace{\left(
+\hat{T}_{ai_1i_2\ldots} \delta_{i_\ell i_{\ell+1}}
++
+\hat{T}_{ai_1i_2\ldots} \delta_{i_{\ell-1} i_{\ell+1}}
++
+\cdots
++
+\hat{T}_{ai_3i_4\ldots} \delta_{i_1 i_2}\right)}_{\binom{\ell+1}{2}\text{ distinct terms}}
+\,.
+\end{align}
+</div>
+The $$(i_\ell i_{\ell+1})$$ indices are either both on the $$\delta$$
+(one way), both on $$\hat{T}$$ ($$\binom{\ell-1}{2}$$ ways), or one index
+on $$\hat{T}$$ and the other on $$\delta$$.  When both indices are on
+$$\delta$$, we get $$3\hat{T}_{aL-1}$$.  If both indices are on $$\hat{T}$$,
+the trace vanishes.  And for each of the $$\binom{\ell+1}{2} - 1 - \binom{\ell-1}{2} =
+2\ell-2$$ terms where the indices are on different tensors, we get
+$$\hat{T}_{aL-1}$$. So, this gives
+<div>
+\begin{align}
+\delta^{i_\ell i_{\ell+1}}
+\hat{T}_{a(L-1} \delta_{i_\ell i_{\ell+1})} = \frac{2(2\ell+1)}{(\ell+1)\ell} \hat{T}_{aL-1} \,.
 \end{align}
 </div>
 
-What are the symmetries of $$m^{kj_{2}\cdots j_{\ell}}$$? It is
-obviously symmetric and tracefree on the $$j$$'s.  It is also easy to
-see that tracing $$k$$ with any of the $$j$$'s would result in a symmetric
-pair of indices contracting with the $$\epsilon$$ tensor in the
-definition of $$m$$, so by symmetry-antisymmetry,
-$$m^{kj_{2}\cdots j_{\ell}}$$ is tracefree on all indices.
+## Back to magnetostatics
 
-Now we will show that $$m^{kj_{2}\cdots j_{\ell}}$$ is symmetric on
-$$(k,j_{2})$$ and thus on $$k$$ with any of the $$j$$'s.  Suppose we split
-the tensor into parts that are symmetric and antisymmetric on these
-two indices,
-$$m^{kj_{2}\cdots j_{\ell}} = m^{(kj_{2})\cdots j_{\ell}} +
-m^{[kj_{2}]\cdots j_{\ell}}$$.  For the antisymmetric part, we could
-again insert a projector in the space of 2-forms.
-While evaluating this projector, we have the dual on $$[k j_{2}]$$.
-But this is simply a trace of $$\mathcal{M}$$: from
-Eq. \eqref{eq:mstatic-mpole-and-dual-rels},
+We apply this to magnetostatics, decomposing $$G_{i;L}$$ into three STF
+pieces
 <div>
 \begin{align}
-  \epsilon^{p}{}_{kj_{2}}m^{kj_{2}\cdots j_{\ell}} =
-  \mathcal{M}^{p;j_{1}j_{2}j_{3}\cdots j_{\ell}}\delta_{j_{1}j_{2}} = 0
+G_{i;L} = U_{iL} - \epsilon_{ai\langle i_\ell} M_{L-1\rangle a}
++ \frac{2\ell-1}{2\ell+1} \delta_{i\langle i_\ell} D_{L-1\rangle}
+\end{align}
+</div>
+where
+<div>
+\begin{align}
+U_{iL} &\equiv G_{\langle i; L\rangle} \,,\\
+M_L &\equiv -\frac{\ell}{\ell+1}G_{a;b\langle L-1} \epsilon_{i_\ell\rangle ab} \,,\\
+D_{L-1} &\equiv G_{a;aL-1} \,.
+\end{align}
+</div>
+Now, by the parenthetical exercise I suggested before, you can show that
+$$U_{L+1}=0$$.  Meanwhile, I'll claim without proof that if you plug the
+$$D_{L-1}$$ term back into the expression for $$A_i$$, you'll see that it's pure
+gauge, and can be removed by a gauge transformation (see Damour and Iyer for all
+the details).
+
+The two minus signs and placement of the factor of $$\ell/(\ell+1)$$ were chosen
+to agree with the traditional definition for the magnetic dipole vector.  We can
+write the magnetic STF multipole tensor in terms of the integral
+<div>
+\begin{align}
+  M^{j_1j_2\cdots j_\ell}
+  = \frac{\ell}{\ell+1}
+  \int 
+  x^{\langle j_{1}} x^{j_{2}} \cdots x^{j_{\ell-1}} \mathcal{M}^{j_\ell\rangle} d^{3}x
   \,,
 \end{align}
 </div>
-which vanishes since $$\mathcal{M}$$ is tracefree on all the $$j$$'s.
-Since this antisymmetric part of $$m^{kj_{2}\cdots j_{\ell}}$$ vanished,
-we found that $$m$$ is STF on all indices.
+where we have defined the magnetization density (note a factor of 1/2 difference
+from Jackson)
+<div>
+\begin{align}
+\boldsymbol{\mathcal{M}} \equiv \boldsymbol{x} \times \boldsymbol{J}
+\,.
+\end{align}
+</div>
 
 We can finally restate $$A^{k}$$ and $$B^{i}$$ in terms of these magnetic
 STF moments, after a bit of algebra:
@@ -354,7 +390,7 @@ STF moments, after a bit of algebra:
   \frac{(-1)^{\ell}}{\ell!}
   \left(
     \pd_{j_1} \pd_{j_2} \cdots \pd_{j_\ell} \frac{1}{r}
-  \right) \epsilon^{kp j_{1}}m^{p j_{2}\cdots j_{\ell}} \,,
+  \right) \epsilon^{kp j_{1}}M^{p j_{2}\cdots j_{\ell}} \,,
   \\
   B^{i} = \epsilon^{ijk}\pd_{j}A_{k} &=
   \frac{\mu_{0}}{4\pi}
@@ -363,6 +399,6 @@ STF moments, after a bit of algebra:
   \left(
     \pd_{i} \pd_{j_{1}}\pd_{j_2} \cdots \pd_{j_\ell} \frac{1}{r}
   \right)
-  m^{j_{1} j_{2}\cdots j_{\ell}} \,.
+  M^{j_{1} j_{2}\cdots j_{\ell}} \,.
 \end{align}
 </div>
