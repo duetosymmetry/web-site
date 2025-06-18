@@ -7,9 +7,9 @@ excerpt:
 tags: [gravity, gravitational waves, general relativity, asymptotia, BMS, numerical relativity, black holes, SXS, LIGO, LISA, surrogate]
 pub:
   authors: "Guido Da Re, Keefe Mitman, Leo C. Stein, Mark A. Scheel, Saul A. Teukolsky, Dongze Sun, Michael Boyle, Nils Deppe, Scott E. Field, Lawrence E. Kidder, Jordan Moxon, Kyle C. Nelli, William Throwe, Vijay Varma, Nils L. Vu"
-  doi:
+  doi: "10.1103/PhysRevD.111.124019"
   arXiv: "2503.09569"
-  jref:
+  jref: "Phys. Rev. D <b>111</b>, 124019 (2025)"
 date: 2025-03-13
 ---
 
