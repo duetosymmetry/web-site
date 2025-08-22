@@ -2,14 +2,19 @@
 title: "Teaching"
 date: 2018-08-20
 permalink: /teaching/
-modified: 2025-01-17
+modified: 2025-08-22
 excerpt:
 tags:
 ---
 
-## Spring 2025
+## Fall 2025
 
 This term I'm lecturing:
+* [Phys 436, Intro to cosmology]({{ site.url }}/teaching/2025-fall-phys-436)
+* [Phys 722, Graduate electromagnetism II]({{ site.url }}/teaching/2025-fall-phys-722)
+
+## Spring 2025
+
 * [Phys 721, Graduate electromagnetism I]({{ site.url }}/teaching/2025-spring-phys-721)
 
 ## Fall 2024

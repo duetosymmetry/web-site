@@ -1,0 +1,31 @@
+---
+title: "Phys 436, Intro to cosmology (Fall 2025)"
+date: 2025-08-22
+permalink: /teaching/2025-fall-phys-436/
+modified: 2025-08-22
+excerpt:
+tags:
+syllabus_url: /files/teaching/2025-fall-phys-436/syllabus.pdf
+---
+
+## Course info
+
+* [Syllabus in PDF format]({{ site.url }}{{ page.syllabus_url }})
+* Class schedule:  MWF 1100--1150, in Lewis 103a
+* Office hours:  TBD, Lewis 205
+* Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
+* Email: [lcstein@olemiss.edu](mailto:lcstein@olemiss.edu)
+* Office: 205 Lewis Hall
+
+Accessing homeworks and other materials will be through
+[Blackboard](https://blackboard.olemiss.edu/).  If you are in this
+course and do not have access to the virtual classroom, email Leo
+ASAP!
+
+## Syllabus
+
+Further details of the course are in the [syllabus PDF]({{ site.url }}{{
+page.syllabus_url }}). If a change in the syllabus becomes necessary during the
+semester, it will be discussed in class and then posted on
+Blackboard. Blackboard will also contain up-to-date information on the class
+schedule, homework assignments, and complementary material.
