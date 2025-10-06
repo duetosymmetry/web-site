@@ -7,9 +7,9 @@ excerpt:
 tags: [gravity, gravitational waves, general relativity, numerical relativity, black holes, SXS, code]
 pub:
   authors: "Mark A. Scheel, (3 authors), Leo C. Stein, (54 more authors)"
-  doi:
+  doi: "10.1088/1361-6382/adfd34"
   arXiv: "2505.13378"
-  jref:
+  jref: "Class. Quantum Grav. <b>42</b> 195017 (2025)"
 date: 2025-05-19
 ---
 
