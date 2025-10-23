@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Late-time tails in nonlinear evolutions of merging black holes"
-modified:
+modified: 2025-10-23
 categories: pubs
 excerpt:
 tags: [SXS, asymptotia, nonlinear, gravity, gravitational waves, general relativity, numerical relativity, perturbation theory, ringdown, black holes]
 pub:
   authors: "Marina De Amicis, Hannes Rüter, Gregorio Carullo, Simone Albanesi, C. Melize Ferrus, Keefe Mitman, Leo C. Stein, Vitor Cardoso, Sebastiano Bernuzzi, Michael Boyle, Nils Deppe, Lawrence E. Kidder, Jordan Moxon, Alessandro Nagar, Kyle C. Nelli, Harald P. Pfeiffer, Mark A. Scheel, William Throwe, Nils L. Vu, Anıl Zenginoğlu"
-  doi:
+  doi: "10.1103/2brx-xnyr"
   arXiv: "2412.06887"
-  jref:
+  jref: "Phys. Rev. Lett. <b>135</b>, 171401 (2025)"
 date: 2024-12-11
 ---
 
