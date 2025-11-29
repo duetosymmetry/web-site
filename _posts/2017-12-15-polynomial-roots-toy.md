@@ -143,7 +143,7 @@ all other $$a_{j\neq i}$$).
 ## Acknowledgments
 
 This toy was somewhat inspired by [John Baez's
-post](https://plus.google.com/+johncbaez999/posts/81M1B5TCmhb), which
+post [now defunct]](https://plus.google.com/+johncbaez999/posts/81M1B5TCmhb), which
 in turn was discussing [this tumblr
 post](http://twocubes.tumblr.com/post/140680223428/same-polynomials-but-this-time-im-letting-t-vary).
 
