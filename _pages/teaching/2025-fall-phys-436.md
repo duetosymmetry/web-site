@@ -5,12 +5,11 @@ permalink: /teaching/2025-fall-phys-436/
 modified: 2025-08-22
 excerpt:
 tags:
-syllabus_url: /files/teaching/2025-fall-phys-436/syllabus.pdf
 ---
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}{{ page.syllabus_url }})
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 1100--1150, in Lewis 103a
 * Office hours:  TBD, Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
@@ -24,8 +23,8 @@ ASAP!
 
 ## Syllabus
 
-Further details of the course are in the [syllabus PDF]({{ site.url }}{{
-page.syllabus_url }}). If a change in the syllabus becomes necessary during the
-semester, it will be discussed in class and then posted on
+Further details of the course are in the [syllabus PDF]({{ site.url }}/files{{
+page.permalink }}syllabus.pdf). If a change in the syllabus becomes necessary
+during the semester, it will be discussed in class and then posted on
 Blackboard. Blackboard will also contain up-to-date information on the class
 schedule, homework assignments, and complementary material.

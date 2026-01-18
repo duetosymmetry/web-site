@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2022-fall-phys-401/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 1400--1450, Lewis 109
 * Office hours:  Thursdays 1430, in Lewis 205
 * Instructor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")

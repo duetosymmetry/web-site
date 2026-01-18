@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2021-spring-phys-402/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 1400--1450, remotely via Google Meet
 * Office hours:  TBD
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")

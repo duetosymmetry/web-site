@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2020-spring-phys-750/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  TR 0800--0915, [this Google Meet link](https://meet.google.com/hmc-pkqq-qqi)
 * Office hours:  TBD, 205 Lewis Hall
 
@@ -29,15 +29,15 @@ tags:
 
 ## Problem sets
 
-* [Problem set 06]({{ site.url }}/files/teaching/2020-spring-phys-750/pset06.pdf),
+* [Problem set 06]({{ site.url }}/files{{ page.permalink }}pset06.pdf),
   due to me by 5PM on Thursday, Apr. 16
-* [Problem set 05]({{ site.url }}/files/teaching/2020-spring-phys-750/pset05.pdf),
+* [Problem set 05]({{ site.url }}/files{{ page.permalink }}pset05.pdf),
   due to me by 5PM on Thursday, Apr. 02
-* [Problem set 04]({{ site.url }}/files/teaching/2020-spring-phys-750/pset04.pdf),
+* [Problem set 04]({{ site.url }}/files{{ page.permalink }}pset04.pdf),
   due to me by 5PM on Friday, Mar. 06
-* [Problem set 03]({{ site.url }}/files/teaching/2020-spring-phys-750/pset03.pdf),
+* [Problem set 03]({{ site.url }}/files{{ page.permalink }}pset03.pdf),
   due to me by 5PM on Tuesday, Feb. 25
-* [Problem set 02]({{ site.url }}/files/teaching/2020-spring-phys-750/pset02.pdf),
+* [Problem set 02]({{ site.url }}/files{{ page.permalink }}pset02.pdf),
   due to me by 5PM on Friday, Feb. 14
-* [Problem set 01]({{ site.url }}/files/teaching/2020-spring-phys-750/pset01.pdf),
+* [Problem set 01]({{ site.url }}/files{{ page.permalink }}pset01.pdf),
   due to me by 5PM on Tuesday, Feb. 4

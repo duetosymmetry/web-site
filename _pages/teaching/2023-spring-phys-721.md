@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2023-spring-phys-721/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 0900--1000, in Lewis 109
 * Office hours:  Wednesday 1730, Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
@@ -149,5 +149,5 @@ schedule, homework assignments and complementary material.
 
 ## Schedule
 
-See the [syllabus PDF]({{ site.url}}/files/teaching/2023-spring-phys-721/syllabus.pdf) for the latest
-updates to the schedule.
+See the [syllabus PDF]({{ site.url}}/files{{ page.permalink }}syllabus.pdf) for
+the latest updates to the schedule.

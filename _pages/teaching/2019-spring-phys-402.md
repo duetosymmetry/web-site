@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2019-spring-phys-402/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  Tues/Thurs 1300--1415, Lewis Hall room 228
 * Office hours:  Mon 1500--1600, Tues 1700--1800, 205 Lewis Hall
 
@@ -31,32 +31,32 @@ tags:
 
 ## Problem sets
 
-* [Problem set 10]({{ site.url }}/files/teaching/2019-spring-phys-402/pset10.pdf),
+* [Problem set 10]({{ site.url }}/files{{ page.permalink }}pset10.pdf),
   due to me by 5PM on Friday, May 10
 
-* [Problem set 09]({{ site.url }}/files/teaching/2019-spring-phys-402/pset09.pdf),
+* [Problem set 09]({{ site.url }}/files{{ page.permalink }}pset09.pdf),
   due to me by 5PM on Friday, May 3
 
-* [Problem set 08]({{ site.url }}/files/teaching/2019-spring-phys-402/pset08.pdf),
+* [Problem set 08]({{ site.url }}/files{{ page.permalink }}pset08.pdf),
   due to me by 5PM on Friday, Apr. 26
 
-* [Problem set 07]({{ site.url }}/files/teaching/2019-spring-phys-402/pset07.pdf),
+* [Problem set 07]({{ site.url }}/files{{ page.permalink }}pset07.pdf),
   due to me by 5PM on Thursday, Apr. 11
 
-* [Problem set 06]({{ site.url }}/files/teaching/2019-spring-phys-402/pset06.pdf),
+* [Problem set 06]({{ site.url }}/files{{ page.permalink }}pset06.pdf),
   due to me by 5PM on Wednesday, Apr. 3
 
-* [Midterm (a.k.a. problem set 05)]({{ site.url }}/files/teaching/2019-spring-phys-402/pset05.pdf),
+* [Midterm (a.k.a. problem set 05)]({{ site.url }}/files{{ page.permalink }}pset05.pdf),
   due to me by 5PM on Monday, Mar. 25
 
-* [Problem set 04]({{ site.url }}/files/teaching/2019-spring-phys-402/pset04.pdf),
+* [Problem set 04]({{ site.url }}/files{{ page.permalink }}pset04.pdf),
   due to me by 5PM on Friday, Mar. 8
 
-* [Problem set 03]({{ site.url }}/files/teaching/2019-spring-phys-402/pset03.pdf),
+* [Problem set 03]({{ site.url }}/files{{ page.permalink }}pset03.pdf),
   due to me by 5PM on Thursday, Feb. 28
 
-* [Problem set 02]({{ site.url }}/files/teaching/2019-spring-phys-402/pset02.pdf),
+* [Problem set 02]({{ site.url }}/files{{ page.permalink }}pset02.pdf),
   due to me by 5PM on Thursday, Feb. 21
 
-* [Problem set 01]({{ site.url }}/files/teaching/2019-spring-phys-402/pset01.pdf),
+* [Problem set 01]({{ site.url }}/files{{ page.permalink }}pset01.pdf),
   due to me by 5PM on Thursday, Feb. 7

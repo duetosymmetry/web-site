@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2019-fall-phys-401/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 1400--1450, Lewis Hall room 109
 * Office hours:  Monday 1300--, 205 Lewis Hall
 
@@ -31,25 +31,25 @@ tags:
 
 ## Problem sets
 
-* [Final (a.k.a problem set 11)]({{ site.url }}/files/teaching/2019-fall-phys-401/pset11.pdf),
+* [Final (a.k.a problem set 11)]({{ site.url }}/files{{ page.permalink }}pset11.pdf),
   due to me by 5PM on Friday, Dec. 13
-* [Problem set 10]({{ site.url }}/files/teaching/2019-fall-phys-401/pset10.pdf),
+* [Problem set 10]({{ site.url }}/files{{ page.permalink }}pset10.pdf),
   due to me by 5PM on Friday, Dec. 6
-* [Problem set 09]({{ site.url }}/files/teaching/2019-fall-phys-401/pset09.pdf),
+* [Problem set 09]({{ site.url }}/files{{ page.permalink }}pset09.pdf),
   due to me by 5PM on Friday, Nov. 22
-* [Problem set 08]({{ site.url }}/files/teaching/2019-fall-phys-401/pset08.pdf),
+* [Problem set 08]({{ site.url }}/files{{ page.permalink }}pset08.pdf),
   due to me by 5PM on Monday, Nov. 11
-* [Problem set 07]({{ site.url }}/files/teaching/2019-fall-phys-401/pset07.pdf),
+* [Problem set 07]({{ site.url }}/files{{ page.permalink }}pset07.pdf),
   due to me by 5PM on Monday, Oct. 28
-* [Midterm (a.k.a problem set 06)]({{ site.url }}/files/teaching/2019-fall-phys-401/pset06.pdf),
+* [Midterm (a.k.a problem set 06)]({{ site.url }}/files{{ page.permalink }}pset06.pdf),
   due to me by 5PM on Wednesday, Oct. 16
-* [Problem set 05]({{ site.url }}/files/teaching/2019-fall-phys-401/pset05.pdf),
+* [Problem set 05]({{ site.url }}/files{{ page.permalink }}pset05.pdf),
   due to me by 5PM on Monday, Oct. 7
-* [Problem set 04]({{ site.url }}/files/teaching/2019-fall-phys-401/pset04.pdf),
+* [Problem set 04]({{ site.url }}/files{{ page.permalink }}pset04.pdf),
   due to me by 5PM on Friday, Sept. 27
-* [Problem set 03]({{ site.url }}/files/teaching/2019-fall-phys-401/pset03.pdf),
+* [Problem set 03]({{ site.url }}/files{{ page.permalink }}pset03.pdf),
   due to me by 5PM on Friday, Sept. 20
-* [Problem set 02]({{ site.url }}/files/teaching/2019-fall-phys-401/pset02.pdf),
+* [Problem set 02]({{ site.url }}/files{{ page.permalink }}pset02.pdf),
   due to me by 5PM on Thursday, Sept. 12
-* [Problem set 01]({{ site.url }}/files/teaching/2019-fall-phys-401/pset01.pdf),
+* [Problem set 01]({{ site.url }}/files{{ page.permalink }}pset01.pdf),
   due to me by 5PM on Thursday, Sept. 5

@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2024-spring-phys-721/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  MWF 0900--1000, in Lewis 109
 * Office hours:  F 1100--1200, Lewis 205
 * Professor: Leo C. Stein (he/him; you can call me "Leo" or "Dr. Stein")
@@ -24,7 +24,7 @@ ASAP!
 ## Syllabus
 
 Further details of the course are in the [syllabus PDF]({{
-site.url}}/files/teaching/2024-spring-phys-721/syllabus.pdf). If a
+site.url}}/files{{ page.permalink }}syllabus.pdf). If a
 change in the syllabus becomes necessary during the semester, it will
 be discussed in class and then posted on Blackboard. Blackboard will
 also contain up-to-date information on the class schedule, homework

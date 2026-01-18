@@ -9,7 +9,7 @@ tags:
 
 ## Course info
 
-* [Syllabus in PDF format]({{ site.url }}/files/teaching/2018-fall-phys-709/syllabus.pdf)
+* [Syllabus in PDF format]({{ site.url }}/files{{ page.permalink }}syllabus.pdf)
 * Class schedule:  Tue/Thu 0800--0915, Lewis Hall room 109
 * Office hours:  Wed 1430, 205 Lewis Hall
 
@@ -33,30 +33,30 @@ tags:
 
 ## Problem sets
 
-* [Problem set 09]({{ site.url }}/files/teaching/2018-fall-phys-709/pset09.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset09-sol.pdf)),
+* [Problem set 09]({{ site.url }}/files{{ page.permalink }}pset09.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset09-sol.pdf)),
   due to me by 5PM on Thursday, Dec. 6
-* [Problem set 08]({{ site.url }}/files/teaching/2018-fall-phys-709/pset08.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset08-sol.pdf)),
+* [Problem set 08]({{ site.url }}/files{{ page.permalink }}pset08.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset08-sol.pdf)),
   due to me by 5PM on Friday, Nov. 16
-* [Problem set 07]({{ site.url }}/files/teaching/2018-fall-phys-709/pset07.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset07-sol.pdf)),
+* [Problem set 07]({{ site.url }}/files{{ page.permalink }}pset07.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset07-sol.pdf)),
   due to me by 5PM on Tuesday, Nov. 6
-* [Midterm (a.k.a. problem set 06)]({{ site.url }}/files/teaching/2018-fall-phys-709/pset06.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset06-sol.pdf)),
+* [Midterm (a.k.a. problem set 06)]({{ site.url }}/files{{ page.permalink }}pset06.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset06-sol.pdf)),
   due to me by 5PM on Tuesday, Oct. 23
-* [Problem set 05]({{ site.url }}/files/teaching/2018-fall-phys-709/pset05.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset05-sol.pdf)),
+* [Problem set 05]({{ site.url }}/files{{ page.permalink }}pset05.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset05-sol.pdf)),
   due to me by 5PM on Friday, Oct. 12
-* [Problem set 04]({{ site.url }}/files/teaching/2018-fall-phys-709/pset04.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset04-sol.pdf)),
+* [Problem set 04]({{ site.url }}/files{{ page.permalink }}pset04.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset04-sol.pdf)),
   due to me by 5PM on Thursday, Sep. 27
-* [Problem set 03]({{ site.url }}/files/teaching/2018-fall-phys-709/pset03.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset03-sol.pdf)),
+* [Problem set 03]({{ site.url }}/files{{ page.permalink }}pset03.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset03-sol.pdf)),
   due to me by 5PM on Monday, Sep. 17
-* [Problem set 02]({{ site.url }}/files/teaching/2018-fall-phys-709/pset02.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset02-sol.pdf)),
+* [Problem set 02]({{ site.url }}/files{{ page.permalink }}pset02.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset02-sol.pdf)),
   due to me by 5PM on Friday, Sep. 7
-* [Problem set 01]({{ site.url }}/files/teaching/2018-fall-phys-709/pset01.pdf)
-  ([solution]({{ site.url }}/files/teaching/2018-fall-phys-709/pset01-sol.pdf), [supplement]({{ site.url }}/files/teaching/2018-fall-phys-709/FW1_9.nb)),
+* [Problem set 01]({{ site.url }}/files{{ page.permalink }}pset01.pdf)
+  ([solution]({{ site.url }}/files{{ page.permalink }}pset01-sol.pdf), [supplement]({{ site.url }}/files{{ page.permalink }}FW1_9.nb)),
   due to me by 5PM on Friday, Aug. 31
