@@ -20,7 +20,7 @@ of subrings. Here, we show that this self-similar structure persists in phase
 space. Moreover, near the photon shell of bound photon orbits, dynamics are
 controlled by a Lyapunov exponent γ, whose role we highlight by computing the
 first-return map for light rays close to an unstably bound orbit. Despite an
-exponential eγ sensitivity to initial conditions, nearly bound rays do not
+exponential $$e^\gamma$$ sensitivity to initial conditions, nearly bound rays do not
 exhibit chaotic behavior. However, as the background spacetime is deformed away
 from the Kerr geometry, chaos sets in, with its first onset most visible near
 strongly resonant bound orbits in the photon shell. We display two animations:
