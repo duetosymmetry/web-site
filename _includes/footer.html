@@ -8,6 +8,9 @@
     {% if site.twitter.username %}
       <li><a href="https://twitter.com/{{ site.twitter.username }}"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
     {% endif %}
+    {% if site.author.bsky %}
+      <li><a href="https://bsky.app/profile/{{ site.author.bsky }}"><i class="fab fa-fw fa-bluesky" aria-hidden="true"></i> Bluesky</a></li>
+    {% endif %}
     {% if site.author.mastodon %}
       <li><a href="https://{{ site.author.mastodon.instance }}/@{{ site.author.mastodon.handle }}" rel="me"><i class="fab fa-fw fa-mastodon" aria-hidden="true"></i> Mastodon</a></li>
     {% endif %}
