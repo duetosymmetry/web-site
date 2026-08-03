@@ -1,15 +1,15 @@
 ---
 layout: pub-link
 title: "Fixing the center-of-mass frame of numerical relativity waveforms using the post-Newtonian center-of-mass charge"
-modified:
+modified: 2026-08-03
 categories: pubs
 excerpt:
 tags: [gravity, general relativity, black holes, dynamics]
 pub:
   authors: "Aniket Khairnar, Leo C. Stein, Michael Boyle, Nils Deppe, Lawrence E. Kidder, Keefe Mitman, Jordan Moxon, Kyle C. Nelli, William Throwe, Nils L. Vu"
-  doi:
+  doi: "10.1103/w57c-gp1p"
   arXiv: "2603.24661"
-  jref:
+  jref: "Phys. Rev. D <b>114</b>, 024087 (2026)"
 date: 2026-03-26
 ---
 
