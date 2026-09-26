@@ -252,6 +252,20 @@
     'showingDiscRoots': false,
     'discRootPoints': [],
 
+    'updateEquation': function() {
+      var formula_pieces = [];
+      // Degree zero is just the coefficient.
+      formula_pieces.push("a0");
+      // Lower degrees have a coefficient ai and x^i.
+      for (var i = 1; i < this.degree; i++) {
+        formula_pieces.push("a" + i + " x^" + i);
+      }
+      // The higest-degree term has a coefficient of 1.
+      formula_pieces.push("x^" + this.degree);
+      document.getElementById('equationTextBox').value =
+        formula_pieces.join(" + ") + " = 0";
+    },
+
     'updatePolyCoeffsFromRoots': function() {
       this.degree = this.roots.length;
       this.p = Polynomial.fromRoots(this.roots);
@@ -379,6 +393,7 @@
 
             controller.updateRootView();
             controller.updateCoeffView();
+            controller.updateEquation();
           };
         })(this);
     },
