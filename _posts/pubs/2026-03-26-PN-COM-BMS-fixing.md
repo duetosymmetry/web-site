@@ -4,7 +4,7 @@ title: "Fixing the center-of-mass frame of numerical relativity waveforms using 
 modified: 2026-08-03
 categories: pubs
 excerpt:
-tags: [gravity, general relativity, black holes, dynamics]
+tags: [gravity, general relativity, gravitational waves, black holes, dynamics, asymptotia, BMS, SXS]
 pub:
   authors: "Aniket Khairnar, Leo C. Stein, Michael Boyle, Nils Deppe, Lawrence E. Kidder, Keefe Mitman, Jordan Moxon, Kyle C. Nelli, William Throwe, Nils L. Vu"
   doi: "10.1103/w57c-gp1p"
