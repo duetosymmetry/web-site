@@ -142,6 +142,17 @@
     }
 
     /**
+     * Compile the "magnitude" sum_ij |c_ij| |x|^i |y|^j, a natural scale
+     * against which to judge whether a value of this polynomial is ~0.
+     */
+    compileAbs() {
+      const m = new Map();
+      for (const [k, c] of this.terms) m.set(k, Math.abs(c));
+      const f = new Poly(m).compile();
+      return (x, y) => f(Math.abs(x), Math.abs(y));
+    }
+
+    /**
      * Terms sorted by descending total degree, then descending power of x.
      */
     sortedTerms() {
@@ -438,6 +449,288 @@
   }
 
   /******************************************************************
+   * Singular locus
+   *
+   * Fix all points but the one being dragged (call it a).  The curves
+   * through the N-2 fixed points form a pencil, lambda g1 + mu g2, and the
+   * curve through a is the member  g2(a) g1 - g1(a) g2.  A generic pencil
+   * has finitely many singular members; the locus of a which makes the
+   * curve singular is the union of those members (each viewed as a curve
+   * in the a-plane).
+   *
+   * A member is singular at s iff (g1, g1_x, g1_y) || (g2, g2_x, g2_y) at s,
+   * i.e. h1 = g1 g2_x - g2 g1_x = 0 and h2 = g1 g2_y - g2 g1_y = 0, away
+   * from base points (g1 = g2 = 0).  We find real solutions by tracing
+   * h1 = 0, looking for sign changes of h2 along it, and polishing with
+   * Newton's method.  The singular member is then  g2(s) g1 - g1(s) g2.
+   ******************************************************************/
+
+  /**
+   * Orthonormal basis of the null space of M (array of rows, each of
+   * length n).  Returns an array of vectors.
+   */
+  function nullSpace(M, n, relTol = 1e-9) {
+    // Normalize rows for conditioning
+    const A = M.map(r => {
+      const nr = Math.hypot(...r) || 1;
+      return r.map(v => v / nr);
+    });
+    const rows = A.length;
+    const pivCols = [];
+    let rk = 0;
+    for (let c = 0; c < n && rk < rows; c++) {
+      let piv = rk;
+      for (let r = rk + 1; r < rows; r++)
+        if (Math.abs(A[r][c]) > Math.abs(A[piv][c])) piv = r;
+      if (Math.abs(A[piv][c]) <= relTol) continue;
+      [A[rk], A[piv]] = [A[piv], A[rk]];
+      const pv = A[rk][c];
+      for (let k = c; k < n; k++) A[rk][k] /= pv;
+      for (let r = 0; r < rows; r++) {
+        if (r === rk) continue;
+        const f = A[r][c];
+        if (f === 0) continue;
+        for (let k = c; k < n; k++) A[r][k] -= f * A[rk][k];
+      }
+      pivCols.push(c);
+      rk++;
+    }
+    const free = [];
+    for (let c = 0; c < n; c++) if (!pivCols.includes(c)) free.push(c);
+
+    // One basis vector per free column, from the RREF
+    const vecs = free.map(fc => {
+      const v = new Array(n).fill(0);
+      v[fc] = 1;
+      pivCols.forEach((pc, r) => { v[pc] = -A[r][fc]; });
+      return v;
+    });
+
+    // Gram-Schmidt
+    const out = [];
+    for (let v of vecs) {
+      for (const u of out) {
+        const d = v.reduce((s, vi, i) => s + vi * u[i], 0);
+        v = v.map((vi, i) => vi - d * u[i]);
+      }
+      const nv = Math.hypot(...v);
+      if (nv > relTol) out.push(v.map(vi => vi / nv));
+    }
+    return out;
+  }
+
+  const IMPLICIT_PLOT_DEFAULTS = {
+    resolution_out: 20, resolution_in: 20, max_steps: 4096,
+    alpha_0: 0.05, tol_newton: 1e-7, tol_cusp: 0.05,
+    tol_progress: 1e-4, qdt_box: 0.2, kappa_0: 0.2, delta_0: 0.05,
+    h_initial: 0.1, h_critical: 0.001, h_max: 0.5,
+    loop_dist: 0.09, loop_dir: 0.99, loop_detection: true,
+    unitX: 100, unitY: 100,
+  };
+
+  /**
+   * Trace the real zero set of the Poly p inside box = [xmin, ymax, xmax, ymin],
+   * returning a list of polyline pieces (arrays of [x, y]).
+   */
+  function traceZeroSet(p, box, plotOpts) {
+    const JX = (typeof JXG !== "undefined") ? JXG : root.JXG;
+    const IP = JX && JX.Math && JX.Math.ImplicitPlot;
+    if (!IP) throw new Error("JSXGraph ImplicitPlot not available");
+    const opts = Object.assign({tol_u0: JX.Math.eps}, IMPLICIT_PLOT_DEFAULTS, plotOpts);
+    const ip = new IP(box, opts, p.compile(), p.derive(0).compile(), p.derive(1).compile());
+    const [X, Y] = ip.plot();
+    const pieces = [];
+    let cur = [];
+    for (let i = 0; i < X.length; i++) {
+      if (isNaN(X[i]) || isNaN(Y[i])) {
+        if (cur.length) pieces.push(cur);
+        cur = [];
+      } else {
+        cur.push([X[i], Y[i]]);
+      }
+    }
+    if (cur.length) pieces.push(cur);
+    return pieces;
+  }
+
+  /**
+   * Polish a common zero of h1, h2 with Newton's method.
+   * hs = {h1, h2, h1x, h1y, h2x, h2y, m1, m2} (compiled functions;
+   * m1, m2 are magnitude functions).  Returns [x, y] or null.
+   */
+  function newton2(hs, x, y, maxIter = 30) {
+    for (let it = 0; it < maxIter; it++) {
+      const f1 = hs.h1(x, y), f2 = hs.h2(x, y);
+      const a = hs.h1x(x, y), b = hs.h1y(x, y);
+      const c = hs.h2x(x, y), d = hs.h2y(x, y);
+      const det = a * d - b * c;
+      if (!isFinite(det) || det === 0) break;
+      const dx = ( d * f1 - b * f2) / det;
+      const dy = (-c * f1 + a * f2) / det;
+      x -= dx; y -= dy;
+      if (!isFinite(x) || !isFinite(y)) return null;
+      if (Math.hypot(dx, dy) < 1e-13 * (1 + Math.hypot(x, y))) break;
+    }
+    const tol = 1e-8;
+    if (Math.abs(hs.h1(x, y)) <= tol * (hs.m1(x, y) || 1) &&
+        Math.abs(hs.h2(x, y)) <= tol * (hs.m2(x, y) || 1))
+      return [x, y];
+    return null;
+  }
+
+  /**
+   * Compute the singular members of the pencil of curves (from basis)
+   * through fixedPts.
+   *
+   * basis: array of Poly; fixedPts: array of [x, y] (length N-2);
+   * box: search region [xmin, ymax, xmax, ymin] for singular points.
+   *
+   * Returns {members: [{poly, singPts: [[x,y], ...]}], basePts: [...]}
+   * or null if the fixed points don't determine a pencil.
+   */
+  function singularMembers(basis, fixedPts, box, plotOpts = {}) {
+    const N = basis.length;
+    const Fs = basis.map(p => p.compile());
+    const M = fixedPts.map(([x, y]) => Fs.map(F => F(x, y)));
+    const ns = nullSpace(M, N);
+    if (ns.length !== 2) return null;
+
+    const combine = v => {
+      let g = new Poly();
+      basis.forEach((p, i) => { g = g.addScaled(p, v[i]); });
+      return g;
+    };
+    const g1 = combine(ns[0]), g2 = combine(ns[1]);
+    const g1x = g1.derive(0), g1y = g1.derive(1);
+    const g2x = g2.derive(0), g2y = g2.derive(1);
+
+    const h1 = g1.mul(g2x).sub(g2.mul(g1x));
+    const h2 = g1.mul(g2y).sub(g2.mul(g1y));
+    if (h1.isZero() || h2.isZero()) return null;
+
+    // Magnitude scales for relative zero tests
+    const absSum = (a, b) => {
+      const fa = a.compileAbs(), fb = b.compileAbs();
+      return (x, y) => fa(x, y) + fb(x, y);
+    };
+    const hs = {
+      h1: h1.compile(), h2: h2.compile(),
+      h1x: h1.derive(0).compile(), h1y: h1.derive(1).compile(),
+      h2x: h2.derive(0).compile(), h2y: h2.derive(1).compile(),
+      m1: absSum(g1.mul(g2x), g2.mul(g1x)),
+      m2: absSum(g1.mul(g2y), g2.mul(g1y)),
+    };
+    const G1 = g1.compile(), G2 = g2.compile();
+    const G1m = g1.compileAbs(), G2m = g2.compileAbs();
+    const dG = {
+      g1x: g1x.compile(), g1y: g1y.compile(), g2x: g2x.compile(), g2y: g2y.compile(),
+      g1xm: g1x.compileAbs(), g1ym: g1y.compileAbs(),
+      g2xm: g2x.compileAbs(), g2ym: g2y.compileAbs(),
+    };
+
+    // Candidate singular points (Newton seeds) come from several sources,
+    // since any one of them can miss solutions:
+    //  1. sign changes of h2 along the traced curve h1 = 0, and vice versa;
+    //  2. a coarse grid over the search box;
+    //  3. small rings around base points (all the fixed points are base
+    //     points, where h1 = h2 = 0 too; singular points close to a base
+    //     point are easily stepped over by the tracer).
+    const cands = [];
+    const signChanges = (hTrace, fOther) => {
+      for (const piece of traceZeroSet(hTrace, box, plotOpts)) {
+        let prev = null, hPrev = 0;
+        for (const pt of piece) {
+          const hv = fOther(pt[0], pt[1]);
+          if (prev !== null && (hv === 0 || hPrev * hv < 0)) {
+            const t = hv === hPrev ? 0.5 : hPrev / (hPrev - hv);
+            cands.push([prev[0] + t * (pt[0] - prev[0]), prev[1] + t * (pt[1] - prev[1])]);
+          }
+          prev = pt; hPrev = hv;
+        }
+      }
+    };
+    signChanges(h1, hs.h2);
+    signChanges(h2, hs.h1);
+
+    const nGrid = 40;
+    for (let i = 0; i <= nGrid; i++)
+      for (let j = 0; j <= nGrid; j++)
+        cands.push([box[0] + (box[2] - box[0]) * i / nGrid,
+                    box[3] + (box[1] - box[3]) * j / nGrid]);
+
+    const ringSeeds = (p) => {
+      const out = [];
+      for (const r of [1e-3, 3e-3, 1e-2, 3e-2, 0.1])
+        for (let k = 0; k < 8; k++) {
+          const a = 2 * Math.PI * (k + 0.5) / 8;
+          out.push([p[0] + r * Math.cos(a), p[1] + r * Math.sin(a)]);
+        }
+      return out;
+    };
+    for (const p of fixedPts) cands.push(...ringSeeds(p));
+
+    const members = [];
+    const basePts = [];
+    const near = (p, q) => Math.hypot(p[0] - q[0], p[1] - q[1]) < 1e-6 * (1 + Math.hypot(...p));
+    const ringed = fixedPts.slice();
+
+    for (let ci = 0; ci < cands.length; ci++) {
+      const c = cands[ci];
+      const s = newton2(hs, c[0], c[1]);
+      if (!s) continue;
+      const [x, y] = s;
+      if (x < box[0] || x > box[2] || y < box[3] || y > box[1]) continue;
+
+      const a1 = G1(x, y), a2 = G2(x, y);
+      const isBase = Math.abs(a1) <= 1e-7 * (G1m(x, y) || 1) &&
+                     Math.abs(a2) <= 1e-7 * (G2m(x, y) || 1);
+      if (isBase) {
+        if (!basePts.some(b => near(b, s))) basePts.push(s);
+        // Base points other than the fixed points (e.g. the 9th point of
+        // a pencil of cubics) get their own ring of seeds
+        if (!ringed.some(b => Math.hypot(b[0] - x, b[1] - y) < 1e-6)) {
+          ringed.push(s);
+          cands.push(...ringSeeds(s));
+        }
+        continue;
+      }
+
+      // Member through s: a2 g1 - a1 g2, i.e. pencil coordinates
+      // (a2, -a1).  Identify members by their angle mod pi.
+      let theta = Math.atan2(-a1, a2);
+      if (theta < 0) theta += Math.PI;
+      if (theta >= Math.PI) theta -= Math.PI;
+
+      // Directly verify the member is singular at s (guards against
+      // spurious near-solutions close to base points)
+      {
+        const nrm = Math.hypot(a1, a2);
+        const c1 = a2 / nrm, c2 = -a1 / nrm;
+        const gx = c1 * dG.g1x(x, y) + c2 * dG.g2x(x, y);
+        const gy = c1 * dG.g1y(x, y) + c2 * dG.g2y(x, y);
+        const mx = Math.abs(c1) * dG.g1xm(x, y) + Math.abs(c2) * dG.g2xm(x, y);
+        const my = Math.abs(c1) * dG.g1ym(x, y) + Math.abs(c2) * dG.g2ym(x, y);
+        if (Math.abs(gx) > 1e-6 * (mx || 1) || Math.abs(gy) > 1e-6 * (my || 1))
+          continue;
+      }
+
+      let mem = members.find(m => {
+        const d = Math.abs(m.theta - theta);
+        return Math.min(d, Math.PI - d) < 1e-6;
+      });
+      if (!mem) {
+        const nrm = Math.hypot(a1, a2);
+        const poly = g1.scale(a2 / nrm).sub(g2.scale(a1 / nrm));
+        mem = {theta, poly, singPts: []};
+        members.push(mem);
+      }
+      if (!mem.singPts.some(q => near(q, s))) mem.singPts.push(s);
+    }
+
+    return {members, basePts, pencil: [g1, g2]};
+  }
+
+  /******************************************************************
    * Presets
    ******************************************************************/
 
@@ -467,6 +760,7 @@
       this.basis = [];        // array of Poly
       this.basisFns = [];     // compiled evaluators
       this.points = [];       // JSXGraph points
+      this.singularElems = [];  // singular locus overlay elements
       this.coeffs = [];
       this.degenerate = true;
 
@@ -577,6 +871,8 @@
       });
 
       this.randomizeBtn.addEventListener("click", () => this.randomizePoints());
+
+      this.singularCheckbox = this.ids.singular ? $(this.ids.singular) : null;
     }
 
     setMessage(msg) {
@@ -613,19 +909,85 @@
           name: "", size: 4, strokeColor: '#c00', fillColor: '#e33',
           showInfobox: false,
         });
+        p.on('down', () => this.showSingularLocus(p));
+        p.on('up', () => this.clearSingularLocus());
         this.points.push(p);
       }
     }
 
     teardownPoints() {
+      this.clearSingularLocus();
       for (const p of this.points) this.board.removeObject(p);
       this.points = [];
     }
 
     randomizePoints() {
+      this.clearSingularLocus();
       this.board.suspendUpdate();
       for (const p of this.points)
         p.setPosition(JXG.COORDS_BY_USER, [this.randomCoord(), this.randomCoord()]);
+      this.board.unsuspendUpdate();
+    }
+
+    /**
+     * While point p is grabbed, show the locus of positions for p which
+     * make the curve singular: the singular members of the pencil of
+     * curves through the other points.  Also mark the singular points.
+     */
+    showSingularLocus(p) {
+      this.clearSingularLocus();
+      if (!this.singularCheckbox || !this.singularCheckbox.checked) return;
+
+      const fixed = this.points.filter(q => q !== p).map(q => [q.X(), q.Y()]);
+      const bb = this.board.getBoundingBox();
+      const w = bb[2] - bb[0], h = bb[1] - bb[3];
+      // Search for singular points in a region larger than the view
+      const searchBox = [bb[0] - w, bb[1] + h, bb[2] + w, bb[3] - h];
+      // Trace the members slightly beyond the view
+      const m = 0.05 * w;
+      const viewBox = [bb[0] - m, bb[1] + m, bb[2] + m, bb[3] - m];
+      const plotOpts = {unitX: this.board.unitX, unitY: this.board.unitY};
+
+      let res;
+      const t0 = performance.now();
+      try {
+        res = singularMembers(this.basis, fixed, searchBox, plotOpts);
+      } catch (e) {
+        console.warn("Singular locus computation failed:", e);
+        return;
+      }
+      if (!res) return;
+
+      this.board.suspendUpdate();
+      for (const mem of res.members) {
+        // Trace once; the member doesn't change while p is dragged
+        const X = [], Y = [];
+        for (const piece of traceZeroSet(mem.poly, viewBox, plotOpts)) {
+          for (const [x, y] of piece) { X.push(x); Y.push(y); }
+          X.push(NaN); Y.push(NaN);
+        }
+        this.singularElems.push(this.board.create('curve', [X, Y], {
+          strokeColor: '#f08a8a', strokeWidth: 2, dash: 2,
+          highlight: false, fixed: true, layer: 2,
+        }));
+        for (const [x, y] of mem.singPts) {
+          if (x < bb[0] || x > bb[2] || y < bb[3] || y > bb[1]) continue;
+          this.singularElems.push(this.board.create('point', [x, y], {
+            name: "", face: "x", size: 4, strokeColor: '#d04040',
+            fixed: true, highlight: false, showInfobox: false, layer: 2,
+          }));
+        }
+      }
+      this.board.unsuspendUpdate();
+      console.log("Singular locus: " + res.members.length + " members in " +
+                  (performance.now() - t0).toFixed(1) + "ms");
+    }
+
+    clearSingularLocus() {
+      if (!this.singularElems.length) return;
+      this.board.suspendUpdate();
+      for (const el of this.singularElems) this.board.removeObject(el);
+      this.singularElems = [];
       this.board.unsuspendUpdate();
     }
 
@@ -697,6 +1059,8 @@
   PolyBasisController.sourceToHTML = sourceToHTML;
   PolyBasisController.sysDetCoeffs = sysDetCoeffs;
   PolyBasisController.PRESETS = PRESETS;
+  PolyBasisController.nullSpace = nullSpace;
+  PolyBasisController.singularMembers = singularMembers;
 
   root['PolyBasisController'] = PolyBasisController;
 

@@ -60,6 +60,10 @@ Grab the red dots and play around! Or jump to the
 </div>
 <div id="basisMsg" class="curveMsg" style="display: none"></div>
 <div>
+<input type="checkbox" id="viewSingular">
+<label for="viewSingular">View singular locus while dragging?</label>
+</div>
+<div>
 <input type="button" id="randomizeBtn" value="Randomize points">
 </div>
 </form>
@@ -77,7 +81,8 @@ Grab the red dots and play around! Or jump to the
     basisForm: "basisForm",
     randomize: "randomizeBtn",
     equation: "curveEqn",
-    message: "basisMsg"
+    message: "basisMsg",
+    singular: "viewSingular"
   });
 </script>
 
@@ -141,6 +146,44 @@ the unbounded piece.  In between, the curve passes through a
 
 Question: In the space of point positions, where are the curves
 singular?
+To find out, check <a href="#viewSingular">the box</a> to view the
+singular locus.  While you drag a point, the dashed red curves show
+where *that* point would have to be for the curve to be singular, and
+the red &times;'s mark where the singularities would be.
+See [below](#the-singular-locus) for how this works.
+
+## The singular locus
+
+While you drag one point $$a$$, the other $$N-2$$ points stay fixed.
+Requiring a curve to pass through those $$N-2$$ points leaves a
+2-dimensional space of coefficients, so the curves through them form a
+*pencil*,
+<div>
+\begin{align}
+\lambda\, g_1(x,y) + \mu\, g_2(x,y) = 0 ,
+\end{align}
+</div>
+for two particular curves $$g_1, g_2$$ through the fixed points.
+Dragging $$a$$ around just picks out the member of the pencil passing
+through $$a$$, namely $$(\lambda,\mu) = (g_2(a), -g_1(a))$$.
+
+A generic pencil has only finitely many *singular* members [for plane
+curves of degree $$d$$, there are $$3(d-1)^2$$ of them over
+$$\mathbb{C}$$].  So the curve becomes singular exactly when $$a$$
+lies on one of these singular members.  In other words, the singular
+locus for $$a$$ is itself a union of curves from the same family!
+
+A member is singular at a point $$s$$ when $$(g_1, \partial_x g_1,
+\partial_y g_1)$$ and $$(g_2, \partial_x g_2, \partial_y g_2)$$ are
+parallel at $$s$$.  The toy finds the real solutions of these equations
+numerically (excluding the *base points* where $$g_1=g_2=0$$), and then
+draws the members of the pencil that are singular there.
+
+Try it with conic sections: with four points fixed, the singular
+conics through them are the three pairs of lines through them.  So
+the singular locus of the fifth point is the six lines joining pairs
+of the four fixed points&mdash;exactly where the fifth point is collinear
+with two others.
 
 ## Acknowledgments
 
