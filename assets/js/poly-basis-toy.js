@@ -508,10 +508,18 @@
       });
 
       const ctrl = this;
+      // NB: JSXGraph interprets 3 parents [f, a, b] as [f, rangex, rangey],
+      // so to supply analytic derivatives we must use the 5-parent form
+      // [f, dfx, dfy, rangex, rangey].  The ranges track the visible board
+      // (plus a small margin), like the default domain does.
+      const margin = 0.5;
+      const bbox = () => this.board.getBoundingBox();
       this.curve = this.board.create('implicitcurve', [
         (x, y) => ctrl.f(x, y),
         (x, y) => ctrl.dfx(x, y),
         (x, y) => ctrl.dfy(x, y),
+        () => { const b = bbox(); return [b[0] - margin, b[2] + margin]; },
+        () => { const b = bbox(); return [b[3] - margin, b[1] + margin]; },
       ], {
         strokeColor: '#1f5fbf',
         strokeWidth: 2.5,
@@ -675,7 +683,7 @@
         if (cv === 1) {
           s += a;
         } else {
-          const ph = p.toHTML();
+          const ph = p.label || p.toHTML();
           s += a + " " + (p.terms.size > 1 ? "(" + ph + ")" : ph);
         }
       });
