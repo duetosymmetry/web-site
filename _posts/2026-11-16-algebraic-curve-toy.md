@@ -179,6 +179,14 @@ parallel at $$s$$.  The toy finds the real solutions of these equations
 numerically (excluding the *base points* where $$g_1=g_2=0$$), and then
 draws the members of the pencil that are singular there.
 
+Some singular points are at infinity!  Think of the curves as living
+in the projective plane, by homogenizing to the degree of the family.
+In the family of circles, the "circle" through three collinear points
+is a line, but as a degree-2 curve it's really that line together with
+the line at infinity, which is singular where the two meet.  So the
+toy also looks for members whose (homogeneous) gradient vanishes at a
+point at infinity.  These are drawn too, but without an &times;.
+
 Try it with conic sections: with four points fixed, the singular
 conics through them are the three pairs of lines through them.  So
 the singular locus of the fifth point is the six lines joining pairs

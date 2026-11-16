@@ -519,6 +519,98 @@
     return out;
   }
 
+  /**
+   * Gradient of the degree-D homogenization of p, at the point at
+   * infinity [c : s : 0].  Returns a function (c, s) => [dX, dY, dZ].
+   */
+  function gradAtInfinity(p, D) {
+    const top = [], next = [];
+    for (const [i, j, c] of p.sortedTerms()) {
+      if (i + j === D) top.push([i, j, c]);
+      else if (i + j === D - 1) next.push([i, j, c]);
+    }
+    return function(c, s) {
+      let gx = 0, gy = 0, gz = 0;
+      for (const [i, j, k] of top) {
+        if (i > 0) gx += k * i * Math.pow(c, i - 1) * Math.pow(s, j);
+        if (j > 0) gy += k * j * Math.pow(c, i) * Math.pow(s, j - 1);
+      }
+      for (const [i, j, k] of next) gz += k * Math.pow(c, i) * Math.pow(s, j);
+      return [gx, gy, gz];
+    };
+  }
+
+  /**
+   * Members of the pencil lambda g1 + mu g2 (viewed as projective curves
+   * of degree D) which are singular at a real point at infinity.
+   *
+   * At P = [cos phi : sin phi : 0], a member is singular iff its
+   * (homogeneous) gradient vanishes, i.e. iff grad g1 and grad g2 are
+   * linearly dependent at P.  We minimize the scale-invariant measure
+   * r(phi) = |grad g1 x grad g2| / (|grad g1|^2 + |grad g2|^2) over phi.
+   *
+   * Returns [{theta, lambda, mu, phi}], with (lambda, mu) a unit vector.
+   */
+  function singularMembersAtInfinity(g1, g2, D, nSamples = 720, tol = 1e-8) {
+    if (D < 1) return [];
+    const G1 = gradAtInfinity(g1, D), G2 = gradAtInfinity(g2, D);
+    const r = (phi) => {
+      const c = Math.cos(phi), s = Math.sin(phi);
+      const a = G1(c, s), b = G2(c, s);
+      const cx = a[1] * b[2] - a[2] * b[1];
+      const cy = a[2] * b[0] - a[0] * b[2];
+      const cz = a[0] * b[1] - a[1] * b[0];
+      const n = a[0] * a[0] + a[1] * a[1] + a[2] * a[2] +
+                b[0] * b[0] + b[1] * b[1] + b[2] * b[2];
+      return n === 0 ? 0 : Math.hypot(cx, cy, cz) / n;
+    };
+
+    // phi and phi + pi are the same point, so sample [0, pi) periodically
+    const h = Math.PI / nSamples;
+    const vals = [];
+    for (let k = 0; k < nSamples; k++) vals.push(r(k * h));
+
+    const out = [];
+    for (let k = 0; k < nSamples; k++) {
+      const vm = vals[(k + nSamples - 1) % nSamples], v0 = vals[k], vp = vals[(k + 1) % nSamples];
+      if (!(v0 <= vm && v0 <= vp)) continue;
+
+      // Golden-section refinement on [phi - h, phi + h]
+      let lo = (k - 1) * h, hi = (k + 1) * h;
+      const gr = (Math.sqrt(5) - 1) / 2;
+      let x1 = hi - gr * (hi - lo), x2 = lo + gr * (hi - lo);
+      let f1 = r(x1), f2 = r(x2);
+      for (let it = 0; it < 100 && hi - lo > 1e-15; it++) {
+        if (f1 < f2) { hi = x2; x2 = x1; f2 = f1; x1 = hi - gr * (hi - lo); f1 = r(x1); }
+        else         { lo = x1; x1 = x2; f1 = f2; x2 = lo + gr * (hi - lo); f2 = r(x2); }
+      }
+      const phi = 0.5 * (lo + hi);
+      if (r(phi) > tol) continue;
+
+      // (lambda, mu) spans the null space of [grad g1, grad g2]: the
+      // eigenvector of the smallest eigenvalue of the 2x2 Gram matrix
+      const c = Math.cos(phi), s = Math.sin(phi);
+      const a = G1(c, s), b = G2(c, s);
+      const aa = a[0] * a[0] + a[1] * a[1] + a[2] * a[2];
+      const bb = b[0] * b[0] + b[1] * b[1] + b[2] * b[2];
+      const ab = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+      const ev = 0.5 * (aa + bb) - Math.hypot(0.5 * (aa - bb), ab);
+      let v1 = [ab, ev - aa], v2 = [ev - bb, ab];
+      let v = Math.hypot(...v1) >= Math.hypot(...v2) ? v1 : v2;
+      if (Math.hypot(...v) === 0) v = aa <= bb ? [1, 0] : [0, 1];
+      const nv = Math.hypot(...v);
+      const lambda = v[0] / nv, mu = v[1] / nv;
+
+      let theta = Math.atan2(mu, lambda);
+      if (theta < 0) theta += Math.PI;
+      if (theta >= Math.PI) theta -= Math.PI;
+      if (out.some(o => Math.min(Math.abs(o.theta - theta), Math.PI - Math.abs(o.theta - theta)) < 1e-6))
+        continue;
+      out.push({theta, lambda, mu, phi: ((phi % Math.PI) + Math.PI) % Math.PI});
+    }
+    return out;
+  }
+
   const IMPLICIT_PLOT_DEFAULTS = {
     resolution_out: 20, resolution_in: 20, max_steps: 4096,
     alpha_0: 0.05, tol_newton: 1e-7, tol_cusp: 0.05,
@@ -725,6 +817,23 @@
         members.push(mem);
       }
       if (!mem.singPts.some(q => near(q, s))) mem.singPts.push(s);
+    }
+
+    // Members singular at a point at infinity (e.g. the line in the
+    // family of circles, which is really line + line at infinity)
+    const D = Math.max(...basis.map(p => p.degree()));
+    for (const mi of singularMembersAtInfinity(g1, g2, D)) {
+      let mem = members.find(m => {
+        const d = Math.abs(m.theta - mi.theta);
+        return Math.min(d, Math.PI - d) < 1e-6;
+      });
+      if (!mem) {
+        const poly = g1.scale(mi.lambda).add(g2.scale(mi.mu));
+        mem = {theta: mi.theta, poly, singPts: [], atInfinity: []};
+        members.push(mem);
+      }
+      if (!mem.atInfinity) mem.atInfinity = [];
+      mem.atInfinity.push(mi.phi);
     }
 
     return {members, basePts, pencil: [g1, g2]};
