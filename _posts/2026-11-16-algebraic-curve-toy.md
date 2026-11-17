@@ -39,6 +39,11 @@ color: #b00;
 font-size: 0.9em;
 margin-bottom: 0.5em;
 }
+
+.myLabel {
+display: inline-block;
+}
+
 </style>
 
 Grab the red dots and play around! Or jump to the
@@ -61,7 +66,7 @@ Grab the red dots and play around! Or jump to the
 <div id="basisMsg" class="curveMsg" style="display: none"></div>
 <div>
 <input type="checkbox" id="viewSingular">
-<label for="viewSingular">View singular locus while dragging?</label>
+<label for="viewSingular" class="myLabel">View singular locus while dragging?</label>
 </div>
 <div>
 <input type="button" id="randomizeBtn" value="Randomize points">
