@@ -5,7 +5,8 @@ excerpt: Interactive toy for drawing plane curves through points, from a chosen 
 tags: [interactive, algebra, polynomial, algebraic geometry]
 date: 2026-11-16
 jsxgraph: true
-published: false
+published: true
+unlisted: true
 pinned: false
 ---
 
