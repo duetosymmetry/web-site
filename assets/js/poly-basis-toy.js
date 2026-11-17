@@ -519,6 +519,277 @@
     return out;
   }
 
+  /******************************************************************
+   * Dual curve
+   *
+   * We draw the dual in the same plane via polar reciprocity in the unit
+   * circle: the point (a, b) represents the line  a x + b y = 1.
+   *
+   * Parametrize that line projectively as  X(s,t) = s A + t B  with
+   * A = (a, b, a^2+b^2) (the foot of the perpendicular from the origin)
+   * and B = (-b, a, 0) (its point at infinity).  Restricting the degree-d
+   * homogenization of f gives a binary form Q(s,t) of degree d, and the
+   * line is tangent iff Q has a repeated root, i.e. iff
+   *   Disc(Q)  ~  Res(Q_s, Q_t) = 0 .
+   * Working with binary forms (formal degree d) means lines in asymptotic
+   * directions, where the affine restriction drops degree, are handled
+   * correctly.  We divide by a positive normalization (|q|^2)^(d-1) so
+   * the function stays O(1); this doesn't change its zero set or signs.
+   ******************************************************************/
+
+  const BINOM = (() => {
+    const B = [[1]];
+    for (let n = 1; n <= 40; n++) {
+      B.push([1]);
+      for (let k = 1; k < n; k++) B[n].push(B[n - 1][k - 1] + B[n - 1][k]);
+      B[n].push(1);
+    }
+    return B;
+  })();
+
+  /**
+   * Coefficients q[0..d] of Q(1, t) = sum_k q_k t^k for the line (a, b),
+   * where terms = [[i, j, c], ...] are the terms of f, of degree <= d.
+   */
+  function lineRestriction(terms, d, a, b, q) {
+    q.fill(0);
+    const r = a * a + b * b;
+    const u = new Float64Array(d + 1), w = new Float64Array(d + 1);
+    for (const [i, j, c] of terms) {
+      // (a - b t)^i
+      for (let k = 0; k <= i; k++)
+        u[k] = BINOM[i][k] * Math.pow(a, i - k) * Math.pow(-b, k);
+      // (b + a t)^j
+      for (let l = 0; l <= j; l++)
+        w[l] = BINOM[j][l] * Math.pow(b, j - l) * Math.pow(a, l);
+      const cz = c * Math.pow(r, d - i - j);
+      for (let k = 0; k <= i; k++)
+        for (let l = 0; l <= j; l++)
+          q[k + l] += cz * u[k] * w[l];
+    }
+    return q;
+  }
+
+  /**
+   * Value of the dual function given the coefficients q[0..d] of Q.
+   * S is scratch space: an array of 2m Float64Arrays of length 2m.
+   */
+  function dualFromQ(q, d, S) {
+    const m = d - 1;
+    let norm = 0;
+    for (let k = 0; k <= d; k++) norm += q[k] * q[k];
+    if (norm === 0) return 1;
+    // Sylvester matrix of Q_s and Q_t, as forms of degree m
+    // (coefficients of s^(m-k) t^k)
+    for (let i = 0; i < 2 * m; i++) S[i].fill(0);
+    for (let i = 0; i < m; i++)
+      for (let k = 0; k <= m; k++) {
+        S[i][i + k] = (d - k) * q[k];
+        S[m + i][i + k] = (k + 1) * q[k + 1];
+      }
+    return detInPlace(S) / Math.pow(norm, m);
+  }
+
+  function sylvesterScratch(d) {
+    const n = 2 * (d - 1);
+    return Array.from({length: n}, () => new Float64Array(n));
+  }
+
+  /**
+   * Straightforward version of dualFunction (expands Q at each (a, b)).
+   * Kept as a reference for testing.
+   */
+  function dualFunctionDirect(f) {
+    const d = f.degree();
+    if (!(d >= 2)) return null;
+    const terms = f.sortedTerms();
+    const q = new Float64Array(d + 1), S = sylvesterScratch(d);
+    return (a, b) => dualFromQ(lineRestriction(terms, d, a, b, q), d, S);
+  }
+
+  /**
+   * Return a function (a, b) => value whose zero set is the dual of the
+   * curve f = 0 (in the polar-reciprocal picture), or null if deg f < 2.
+   *
+   * For speed, each coefficient q_k of Q is expanded once as a polynomial
+   * in (a, b) (stored in a Poly, with a, b in the x, y slots).
+   */
+  function dualFunction(f) {
+    const d = f.degree();
+    if (!(d >= 2)) return null;
+
+    const qPolys = Array.from({length: d + 1}, () => new Poly());
+    const r = Poly.monomial(2, 0).add(Poly.monomial(0, 2));   // a^2 + b^2
+    const rPow = [Poly.constant(1)];
+    for (let p = 1; p <= d; p++) rPow.push(rPow[p - 1].mul(r));
+
+    for (const [i, j, c] of f.sortedTerms()) {
+      for (let k = 0; k <= i; k++) {
+        // (a - b t)^i  ->  C(i,k) a^(i-k) (-b)^k t^k
+        const ck = BINOM[i][k] * (k % 2 ? -1 : 1);
+        for (let l = 0; l <= j; l++) {
+          // (b + a t)^j  ->  C(j,l) b^(j-l) a^l t^l
+          const coef = c * ck * BINOM[j][l];
+          const mono = Poly.monomial(i - k + l, k + j - l, coef);
+          qPolys[k + l] = qPolys[k + l].add(mono.mul(rPow[d - i - j]));
+        }
+      }
+    }
+
+    const qFns = qPolys.map(p => p.compile());
+    const q = new Float64Array(d + 1), S = sylvesterScratch(d);
+    return function(a, b) {
+      for (let k = 0; k <= d; k++) q[k] = qFns[k](a, b);
+      return dualFromQ(q, d, S);
+    };
+  }
+
+  /**
+   * Map a traced curve f = 0 (polyline X, Y with NaN separators) to its
+   * dual, point by point:  p  ->  grad f(p) / (p . grad f(p)),  the pole
+   * of the tangent line at p.  Segments whose images are longer than tol
+   * are subdivided, projecting midpoints back onto the curve.  This draws
+   * cusps of the dual (images of inflection points) sharply, which a grid
+   * method can't.  Pieces are broken where the image leaves the clip
+   * region |a|, |b| < clip (tangent lines near the origin) or at singular
+   * points of the curve.  view is the half-width of the visible region;
+   * outside it the subdivision tolerance is relaxed.
+   */
+  function dualOfTracedCurve(X, Y, F, Fx, Fy, view, clip, tol = 0.01, maxDepth = 12) {
+    const project = (x, y) => {
+      for (let it = 0; it < 4; it++) {
+        const gx = Fx(x, y), gy = Fy(x, y), n = gx * gx + gy * gy;
+        if (!(n > 0)) break;
+        const v = F(x, y) / n;
+        x -= v * gx; y -= v * gy;
+      }
+      return [x, y];
+    };
+    // Dual image of p, or null if undefined / outside the clip region
+    const img = (p) => {
+      const gx = Fx(p[0], p[1]), gy = Fy(p[0], p[1]);
+      const den = p[0] * gx + p[1] * gy;
+      if (!(Math.hypot(gx, gy) > 1e-9) || den === 0) return null;
+      const D = [gx / den, gy / den];
+      if (!(Math.abs(D[0]) < clip && Math.abs(D[1]) < clip)) return null;
+      return {D, s: Math.sign(den)};
+    };
+
+    const DX = [], DY = [];
+    let open = false;   // is there an unfinished output polyline?
+    const brk = () => { if (open) { DX.push(NaN); DY.push(NaN); open = false; } };
+    const put = (D) => { DX.push(D[0]); DY.push(D[1]); open = true; };
+
+    // Allowed chord length: tol inside the view, growing outside it
+    const tolAt = (D) => {
+      const r = Math.max(Math.abs(D[0]), Math.abs(D[1])) / view;
+      return r <= 1 ? tol : tol * r * r * r;
+    };
+
+    // Emit the image of the curve segment p -> q (image of p already put)
+    const segment = (p, q, ip, iq, depth) => {
+      // Both ends outside the clip region (or undefined): nothing to draw
+      if (!ip && !iq) { brk(); return; }
+      const far = ip && iq && Math.hypot(ip.D[0] - iq.D[0], ip.D[1] - iq.D[1]) >
+                  Math.min(tolAt(ip.D), tolAt(iq.D));
+      const needSplit = !ip || !iq || ip.s !== iq.s || far;
+      if (needSplit && depth < maxDepth &&
+          Math.hypot(q[0] - p[0], q[1] - p[1]) > 1e-9) {
+        const m = project(0.5 * (p[0] + q[0]), 0.5 * (p[1] + q[1]));
+        const im = img(m);
+        segment(p, m, ip, im, depth + 1);
+        if (im && !open) put(im.D);
+        segment(m, q, im, iq, depth + 1);
+        return;
+      }
+      if (!ip || !iq || ip.s !== iq.s) { brk(); if (iq) put(iq.D); return; }
+      if (!open) put(ip.D);
+      put(iq.D);
+    };
+
+    let prev = null, iprev = null;
+    for (let k = 0; k < X.length; k++) {
+      if (isNaN(X[k]) || isNaN(Y[k])) { brk(); prev = null; continue; }
+      const p = [X[k], Y[k]], ip = img(p);
+      if (prev === null) {
+        brk();
+        if (ip) put(ip.D);
+      } else {
+        segment(prev, p, iprev, ip, 0);
+      }
+      prev = p; iprev = ip;
+    }
+    brk();
+    return [DX, DY];
+  }
+
+  /**
+   * Marching squares: the zero set of F over box = [xmin, ymax, xmax, ymin]
+   * on an nx-by-ny grid of cells, as line segments [X, Y] separated by
+   * NaNs.  Edge crossings are refined with a few steps of regula falsi.
+   */
+  function marchingSquares(F, box, nx, ny) {
+    const [x0, y1, x1, y0] = box;
+    const hx = (x1 - x0) / nx, hy = (y1 - y0) / ny;
+    const V = new Float64Array((nx + 1) * (ny + 1));
+    const idx = (i, j) => i * (ny + 1) + j;
+    for (let i = 0; i <= nx; i++)
+      for (let j = 0; j <= ny; j++)
+        V[idx(i, j)] = F(x0 + i * hx, y0 + j * hy);
+
+    // Root on the segment from p (value fp) to q (value fq)
+    const root = (px, py, fp, qx, qy, fq) => {
+      let a = 0, b = 1, fa = fp, fb = fq, side = 0;
+      let t = fa / (fa - fb);
+      for (let it = 0; it < 4; it++) {
+        t = (a * fb - b * fa) / (fb - fa);
+        const ft = F(px + t * (qx - px), py + t * (qy - py));
+        if (ft === 0 || !isFinite(ft)) break;
+        if (ft * fb > 0) { b = t; fb = ft; if (side === -1) fa /= 2; side = -1; }
+        else { a = t; fa = ft; if (side === 1) fb /= 2; side = 1; }
+      }
+      return [px + t * (qx - px), py + t * (qy - py)];
+    };
+
+    const X = [], Y = [];
+    const seg = (p, q) => { X.push(p[0], q[0], NaN); Y.push(p[1], q[1], NaN); };
+    for (let i = 0; i < nx; i++) {
+      for (let j = 0; j < ny; j++) {
+        const xa = x0 + i * hx, xb = xa + hx, ya = y0 + j * hy, yb = ya + hy;
+        const f00 = V[idx(i, j)], f10 = V[idx(i + 1, j)];
+        const f01 = V[idx(i, j + 1)], f11 = V[idx(i + 1, j + 1)];
+        if (!(isFinite(f00) && isFinite(f10) && isFinite(f01) && isFinite(f11))) continue;
+        // Crossings on the 4 edges: bottom, right, top, left
+        const pts = [];
+        if ((f00 < 0) !== (f10 < 0)) pts.push(root(xa, ya, f00, xb, ya, f10));
+        if ((f10 < 0) !== (f11 < 0)) pts.push(root(xb, ya, f10, xb, yb, f11));
+        if ((f11 < 0) !== (f01 < 0)) pts.push(root(xb, yb, f11, xa, yb, f01));
+        if ((f01 < 0) !== (f00 < 0)) pts.push(root(xa, yb, f01, xa, ya, f00));
+        if (pts.length === 2) {
+          seg(pts[0], pts[1]);
+        } else if (pts.length === 4) {
+          // Saddle: decide the pairing by the sign at the center
+          const fc = F(xa + 0.5 * hx, ya + 0.5 * hy);
+          if ((fc < 0) === (f00 < 0)) { seg(pts[0], pts[1]); seg(pts[2], pts[3]); }
+          else { seg(pts[0], pts[3]); seg(pts[1], pts[2]); }
+        }
+      }
+    }
+    return [X, Y];
+  }
+
+  /**
+   * For a line f = 0 (degree 1), its dual point, or null if the line
+   * passes through the origin (dual point at infinity).
+   */
+  function dualPointOfLine(f) {
+    if (f.degree() !== 1) return null;
+    const c0 = f.terms.get("0,0") || 0;
+    const cx = f.terms.get("1,0") || 0, cy = f.terms.get("0,1") || 0;
+    if (Math.abs(c0) <= 1e-12 * Math.hypot(cx, cy)) return null;
+    return [-cx / c0, -cy / c0];
+  }
+
   /**
    * Gradient of the degree-D homogenization of p, at the point at
    * infinity [c : s : 0].  Returns a function (c, s) => [dX, dY, dZ].
@@ -939,6 +1210,63 @@
         ctrl.recompute();
         origUpdate.call(this);
       };
+
+      // Dual curve (created after this.curve, so it updates after it in
+      // each board update and can use the freshly traced curve data)
+      this.showDual = false;
+      this.unitCircle = this.board.create('circle', [[0, 0], 1], {
+        strokeColor: '#999', strokeWidth: 1, dash: 1,
+        fixed: true, highlight: false, visible: false, hasInnerPoints: false,
+      });
+      this.dualCurve = this.board.create('curve', [[], []], {
+        strokeColor: '#2a9d4b', strokeWidth: 2,
+        fixed: true, highlight: false, visible: false,
+      });
+      this.dualCurve.updateDataArray = function() {
+        const [X, Y] = ctrl.showDual ? ctrl.computeDual() : [[], []];
+        this.dataX = X;
+        this.dataY = Y;
+      };
+    }
+
+    /**
+     * Dual of the current curve, as polyline data [X, Y].  Combines the
+     * point-by-point image of the traced curve (accurate, with sharp cusps)
+     * with marching squares on the dual's implicit equation (which also
+     * catches pieces coming from tangent lines outside the view, e.g.
+     * asymptotes).  The dual of a line is a point, drawn as a small cross.
+     */
+    computeDual() {
+      if (this.degenerate || !this.fPoly) return [[], []];
+      const f = this.fPoly;
+      const bb = this.board.getBoundingBox();
+      const view = Math.max(Math.abs(bb[0]), Math.abs(bb[1]), Math.abs(bb[2]), Math.abs(bb[3]));
+
+      if (f.degree() === 1) {
+        const D = dualPointOfLine(f);
+        if (!D) return [[], []];
+        const h = 0.06 * view / 2;
+        return [[D[0] - h, D[0] + h, NaN, D[0], D[0]],
+                [D[1], D[1], NaN, D[1] - h, D[1] + h]];
+      }
+
+      const Fd = dualFunction(f);
+      if (!Fd) return [[], []];
+      const [PX, PY] = dualOfTracedCurve(this.curve.dataX || [], this.curve.dataY || [],
+                                         this.f, this.dfx, this.dfy, view, 3 * view);
+      const m = 0.02 * view;
+      // Coarser grid while dragging (JSXGraph redraws at high quality on
+      // release); the point-by-point part keeps the in-view detail sharp
+      const nGrid = this.board.updateQuality === this.board.BOARD_QUALITY_LOW ? 70 : 120;
+      const [MX, MY] = marchingSquares(Fd, [bb[0] - m, bb[1] + m, bb[2] + m, bb[3] - m], nGrid, nGrid);
+      return [PX.concat([NaN], MX), PY.concat([NaN], MY)];
+    }
+
+    setShowDual(show) {
+      this.showDual = !!show;
+      this.dualCurve.setAttribute({visible: this.showDual});
+      this.unitCircle.setAttribute({visible: this.showDual});
+      this.board.update();
     }
 
     setupControls() {
@@ -982,6 +1310,14 @@
       this.randomizeBtn.addEventListener("click", () => this.randomizePoints());
 
       this.singularCheckbox = this.ids.singular ? $(this.ids.singular) : null;
+
+      this.dualCheckbox = this.ids.dual ? $(this.ids.dual) : null;
+      if (this.dualCheckbox) {
+        this.dualCheckbox.addEventListener("change",
+          () => this.setShowDual(this.dualCheckbox.checked));
+        // Browsers may restore a checked state on reload
+        if (this.dualCheckbox.checked) this.setShowDual(true);
+      }
     }
 
     setMessage(msg) {
@@ -1170,6 +1506,11 @@
   PolyBasisController.PRESETS = PRESETS;
   PolyBasisController.nullSpace = nullSpace;
   PolyBasisController.singularMembers = singularMembers;
+  PolyBasisController.dualFunction = dualFunction;
+  PolyBasisController.dualFunctionDirect = dualFunctionDirect;
+  PolyBasisController.marchingSquares = marchingSquares;
+  PolyBasisController.dualOfTracedCurve = dualOfTracedCurve;
+  PolyBasisController.dualPointOfLine = dualPointOfLine;
 
   root['PolyBasisController'] = PolyBasisController;
 

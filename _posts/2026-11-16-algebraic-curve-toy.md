@@ -70,6 +70,10 @@ Grab the red dots and play around! Or jump to the
 <label for="viewSingular" class="myLabel">View singular locus while dragging?</label>
 </div>
 <div>
+<input type="checkbox" id="viewDual">
+<label for="viewDual" class="myLabel">View dual curve?</label>
+</div>
+<div>
 <input type="button" id="randomizeBtn" value="Randomize points">
 </div>
 </form>
@@ -88,7 +92,8 @@ Grab the red dots and play around! Or jump to the
     randomize: "randomizeBtn",
     equation: "curveEqn",
     message: "basisMsg",
-    singular: "viewSingular"
+    singular: "viewSingular",
+    dual: "viewDual"
   });
 </script>
 
@@ -198,6 +203,40 @@ conics through them are the three pairs of lines through them.  So
 the singular locus of the fifth point is the six lines joining pairs
 of the four fixed points&mdash;exactly where the fifth point is collinear
 with two others.
+
+## The dual curve
+
+Each tangent line to the curve is a point of the *dual* curve, which
+lives in the dual projective plane (the space of lines).  To draw it in
+the same picture, the toy uses *polar reciprocity* in the unit circle:
+the line $$a x + b y = 1$$ is drawn as the point $$(a, b)$$.  The
+tangent line at a point $$p$$ of the curve $$f=0$$ is then drawn at
+<div>
+\begin{align}
+p^\ast = \frac{\nabla f(p)}{p \cdot \nabla f(p)} .
+\end{align}
+</div>
+Check <a href="#viewDual">the box</a> to see the dual in green, along
+with the unit circle (dotted), which is its own dual.
+
+Things to notice:
+* The dual of a conic is a conic.
+* Inflection points of the curve become *cusps* of the dual, and
+  lines tangent at two points (bitangents) become *nodes*.  A smooth
+  real cubic has three real inflection points, so its dual has three
+  real cusps.
+* A tangent line through the origin corresponds to a point at
+  infinity, so the dual runs off the screen.  Conversely, the line at
+  infinity is drawn at the origin: an elliptic curve in standard form
+  has an inflection point at infinity (with the line at infinity as
+  its tangent), so its dual has a cusp at the origin.
+* Taking the dual twice gets you back where you started.
+
+To draw the dual, the toy maps the traced curve point by point, and
+also traces the zero set of the dual's implicit equation, which is
+the discriminant of $$f$$ restricted to the line $$a x + b y = 1$$.
+The latter catches pieces coming from tangent lines outside the
+picture, such as the asymptotes.
 
 ## Acknowledgments
 
