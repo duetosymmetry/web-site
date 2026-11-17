@@ -1314,6 +1314,7 @@
       // so the curve always reflects the current point positions.
       const origUpdate = this.curve.updateDataArray;
       this.curve.updateDataArray = function() {
+        if (ctrl.hoverOnlyUpdate) return;   // keep the traced data
         ctrl.recompute();
         origUpdate.call(this);
       };
@@ -1330,6 +1331,7 @@
         fixed: true, highlight: false, visible: false,
       });
       this.dualCurve.updateDataArray = function() {
+        if (ctrl.hoverOnlyUpdate) return;   // keep the traced data
         const [X, Y] = ctrl.showDual ? ctrl.computeDual() : [[], []];
         this.dataX = X;
         this.dataY = Y;
@@ -1346,8 +1348,7 @@
      */
     setupHover() {
       const ctrl = this;
-      // Hidden elements have NaN coordinates, so they aren't drawn; this
-      // way they can be updated without a full board update.
+      // Hidden elements have NaN coordinates, so they are not drawn.
       this.hover = {p: [NaN, NaN], q: [NaN, NaN], tan: [NaN, NaN, NaN]};
       const H = this.hover;
       const common = {fixed: true, highlight: false, showInfobox: false, name: ""};
@@ -1392,7 +1393,15 @@
       } else {
         H.tan = [NaN, NaN, NaN];
       }
-      for (const el of this.hoverElems) el.prepareUpdate().update().updateRenderer();
+      // A full board update (updating the hover elements on their own
+      // doesn't refresh the lines' defining points, nor visibility), but
+      // with the curves keeping their already-traced data
+      this.hoverOnlyUpdate = true;
+      try {
+        this.board.update();
+      } finally {
+        this.hoverOnlyUpdate = false;
+      }
     }
 
     /**
