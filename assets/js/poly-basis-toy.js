@@ -791,6 +791,113 @@
   }
 
   /**
+   * All complex roots of the real polynomial sum_k c[k] t^k, by the
+   * Durand-Kerner iteration.  Returns an array of [re, im].
+   */
+  function polyRoots(c) {
+    let n = c.length - 1;
+    let cmax = 0;
+    for (const v of c) cmax = Math.max(cmax, Math.abs(v));
+    while (n > 0 && Math.abs(c[n]) <= 1e-14 * cmax) n--;
+    if (n < 1) return [];
+    const a = [];
+    for (let k = 0; k <= n; k++) a.push(c[k] / c[n]);   // monic
+    // Initial guesses on a circle of the Cauchy bound radius
+    let R = 0;
+    for (let k = 0; k < n; k++) R = Math.max(R, Math.abs(a[k]));
+    R = 1 + R;
+    const zr = [], zi = [];
+    for (let k = 0; k < n; k++) {
+      const th = 2 * Math.PI * k / n + 0.4;
+      zr.push(0.5 * R * Math.cos(th));
+      zi.push(0.5 * R * Math.sin(th));
+    }
+    for (let it = 0; it < 500; it++) {
+      let maxStep = 0;
+      for (let k = 0; k < n; k++) {
+        // p(z_k) by Horner
+        let pr = 1, pi = 0;
+        for (let m = n - 1; m >= 0; m--) {
+          const tr = pr * zr[k] - pi * zi[k] + a[m];
+          pi = pr * zi[k] + pi * zr[k];
+          pr = tr;
+        }
+        // prod_{j != k} (z_k - z_j)
+        let qr = 1, qi = 0;
+        for (let j = 0; j < n; j++) {
+          if (j === k) continue;
+          const dr = zr[k] - zr[j], di = zi[k] - zi[j];
+          const tr = qr * dr - qi * di;
+          qi = qr * di + qi * dr;
+          qr = tr;
+        }
+        const den = qr * qr + qi * qi;
+        if (den === 0) { zr[k] += 1e-8 * R; continue; }
+        const sr = (pr * qr + pi * qi) / den, si = (pi * qr - pr * qi) / den;
+        zr[k] -= sr;
+        zi[k] -= si;
+        maxStep = Math.max(maxStep, Math.hypot(sr, si) / (1 + Math.hypot(zr[k], zi[k])));
+      }
+      if (maxStep < 1e-14) break;
+    }
+    return zr.map((r, k) => [r, zi[k]]);
+  }
+
+  /**
+   * Move (x, y) onto the curve F = 0 by a few Newton steps along the
+   * gradient.  Returns null if it fails to converge.
+   */
+  function projectToCurve(F, Fx, Fy, x, y, maxStep = Infinity) {
+    for (let it = 0; it < 20; it++) {
+      const v = F(x, y), gx = Fx(x, y), gy = Fy(x, y);
+      const g2 = gx * gx + gy * gy;
+      if (!(g2 > 0)) return null;
+      let dx = v * gx / g2, dy = v * gy / g2;
+      const step = Math.hypot(dx, dy);
+      if (step > maxStep) { dx *= maxStep / step; dy *= maxStep / step; }
+      x -= dx; y -= dy;
+      if (step < 1e-13 * (1 + Math.hypot(x, y))) break;
+    }
+    const v = F(x, y), g = Math.hypot(Fx(x, y), Fy(x, y));
+    return (isFinite(x) && isFinite(y) && Math.abs(v) <= 1e-8 * g * (1 + Math.hypot(x, y)))
+      ? [x, y] : null;
+  }
+
+  /**
+   * Dual point (in the polar-reciprocal picture) of the tangent line to
+   * F = 0 at p, i.e. grad F / (p . grad F), or null if the tangent line
+   * passes through the origin.
+   */
+  function dualPointAt(Fx, Fy, p) {
+    const gx = Fx(p[0], p[1]), gy = Fy(p[0], p[1]);
+    const dot = p[0] * gx + p[1] * gy;
+    if (!(Math.abs(dot) > 1e-12 * Math.hypot(gx, gy) * (1 + Math.hypot(p[0], p[1]))))
+      return null;
+    return [gx / dot, gy / dot];
+  }
+
+  /**
+   * Candidate points of tangency of the curve f = 0 with the line
+   * a x + b y = 1: critical points of f restricted to the line (the line
+   * is tangent where f has a double root).  Returns points [x, y].
+   */
+  function tangencyCandidates(f, a, b) {
+    const d = f.degree();
+    if (d < 2) return [];
+    const q = lineRestriction(f.sortedTerms(), d, a, b, new Float64Array(d + 1));
+    // dQ/dt
+    const dq = [];
+    for (let k = 1; k <= d; k++) dq.push(k * q[k]);
+    const r = a * a + b * b;
+    const out = [];
+    for (const [t, ti] of polyRoots(dq)) {
+      if (Math.abs(ti) > 0.1 * (1 + Math.abs(t))) continue;
+      out.push([(a - t * b) / r, (b + t * a) / r]);
+    }
+    return out;
+  }
+
+  /**
    * Gradient of the degree-D homogenization of p, at the point at
    * infinity [c : s : 0].  Returns a function (c, s) => [dX, dY, dZ].
    */
@@ -1227,6 +1334,123 @@
         this.dataX = X;
         this.dataY = Y;
       };
+
+      this.setupHover();
+    }
+
+    /**
+     * When the dual is shown, hovering over either curve highlights a
+     * point p of the curve and the dual point q of its tangent line,
+     * along with the tangent line at p (which is the line represented by
+     * q) and the polar line of p (which is tangent to the dual at q).
+     */
+    setupHover() {
+      const ctrl = this;
+      // Hidden elements have NaN coordinates, so they aren't drawn; this
+      // way they can be updated without a full board update.
+      this.hover = {p: [NaN, NaN], q: [NaN, NaN], tan: [NaN, NaN, NaN]};
+      const H = this.hover;
+      const common = {fixed: true, highlight: false, showInfobox: false, name: ""};
+      const lineOpts = Object.assign({}, common, {
+        strokeWidth: 1.5, dash: 2, layer: 3, straightFirst: true, straightLast: true,
+      });
+      this.hoverElems = [
+        // tangent line at p, which is the line represented by q
+        this.board.create('line', [() => H.tan[0], () => H.tan[1], () => H.tan[2]],
+          Object.assign({}, lineOpts, {strokeColor: '#1f5fbf'})),
+        // polar line of p, tangent to the dual at q
+        this.board.create('line', [() => -1, () => H.p[0], () => H.p[1]],
+          Object.assign({}, lineOpts, {strokeColor: '#2a9d4b'})),
+        this.board.create('point', [() => H.p[0], () => H.p[1]],
+          Object.assign({}, common, {size: 5, strokeColor: '#fff', fillColor: '#1f5fbf', layer: 8})),
+        this.board.create('point', [() => H.q[0], () => H.q[1]],
+          Object.assign({}, common, {size: 5, strokeColor: '#fff', fillColor: '#2a9d4b', layer: 8})),
+      ];
+
+      this.board.on('move', function(evt, mode) {
+        if (mode === ctrl.board.BOARD_MODE_DRAG) ctrl.setHover(null, null);
+        else ctrl.onHoverMove(evt);
+      });
+      this.board.on('down', () => ctrl.setHover(null, null));
+      this.board.containerObj.addEventListener('pointerleave', () => ctrl.setHover(null, null));
+    }
+
+    setHover(p, q) {
+      const H = this.hover;
+      const same = (u, v) => (u[0] === v[0] || (isNaN(u[0]) && isNaN(v[0]))) &&
+                             (u[1] === v[1] || (isNaN(u[1]) && isNaN(v[1])));
+      const P = p || [NaN, NaN], Q = q || [NaN, NaN];
+      if (same(H.p, P) && same(H.q, Q)) return;
+      H.p = P;
+      H.q = Q;
+      // Tangent line at p, as [c, a, b] for c + a x + b y = 0
+      if (p) {
+        const gx = this.dfx(p[0], p[1]), gy = this.dfy(p[0], p[1]);
+        H.tan = [-(p[0] * gx + p[1] * gy), gx, gy];
+      } else if (q) {
+        H.tan = [-1, q[0], q[1]];
+      } else {
+        H.tan = [NaN, NaN, NaN];
+      }
+      for (const el of this.hoverElems) el.prepareUpdate().update().updateRenderer();
+    }
+
+    /**
+     * Find which curve (if either) the mouse is near, and the dual pair.
+     */
+    onHoverMove(evt) {
+      if (!this.showDual || this.degenerate || !this.fPoly) {
+        this.setHover(null, null);
+        return;
+      }
+      const [mx, my] = this.board.getUsrCoordsOfMouse(evt);
+      const ux = this.board.unitX, uy = this.board.unitY;
+      const tolPx = 8;
+
+      // Nearest point (in pixels) on a NaN-separated polyline
+      const nearest = (X, Y) => {
+        let best = Infinity, bx = NaN, by = NaN;
+        for (let k = 0; k + 1 < X.length; k++) {
+          const x0 = X[k], y0 = Y[k], x1 = X[k + 1], y1 = Y[k + 1];
+          if (isNaN(x0) || isNaN(x1) || isNaN(y0) || isNaN(y1)) continue;
+          const ex = (x1 - x0) * ux, ey = (y1 - y0) * uy;
+          const wx = (mx - x0) * ux, wy = (my - y0) * uy;
+          const e2 = ex * ex + ey * ey;
+          const t = e2 > 0 ? Math.max(0, Math.min(1, (wx * ex + wy * ey) / e2)) : 0;
+          const d = Math.hypot(wx - t * ex, wy - t * ey);
+          if (d < best) { best = d; bx = x0 + t * (x1 - x0); by = y0 + t * (y1 - y0); }
+        }
+        return {d: best, pt: [bx, by]};
+      };
+
+      const onCurve = nearest(this.curve.dataX || [], this.curve.dataY || []);
+      const onDual = nearest(this.dualCurve.dataX || [], this.dualCurve.dataY || []);
+      const F = this.f, Fx = this.dfx, Fy = this.dfy;
+      const pxDist = (u, v) => Math.hypot((u[0] - v[0]) * ux, (u[1] - v[1]) * uy);
+
+      if (onCurve.d <= tolPx && onCurve.d <= onDual.d) {
+        const p = projectToCurve(F, Fx, Fy, onCurve.pt[0], onCurve.pt[1], 2 * tolPx / ux);
+        if (p) { this.setHover(p, dualPointAt(Fx, Fy, p)); return; }
+      } else if (onDual.d <= tolPx && this.fPoly.degree() >= 2) {
+        // The point of tangency of the line q0 (approximately on the dual):
+        // try each critical point of f along the line, snap it onto the
+        // curve, and keep the one whose dual point is nearest q0.
+        const q0 = onDual.pt;
+        let best = null, bestD = Infinity;
+        for (const c of tangencyCandidates(this.fPoly, q0[0], q0[1])) {
+          const p = projectToCurve(F, Fx, Fy, c[0], c[1]);
+          if (!p) continue;
+          const q = dualPointAt(Fx, Fy, p);
+          if (!q) continue;
+          const d = pxDist(q, q0);
+          if (d < bestD) { bestD = d; best = [p, q]; }
+        }
+        if (best && bestD <= 3 * tolPx) { this.setHover(best[0], best[1]); return; }
+        // Point of tangency not found (e.g. it is very far away): still
+        // show the dual point and the line it represents
+        if (Math.hypot(q0[0], q0[1]) > 1e-9) { this.setHover(null, q0); return; }
+      }
+      this.setHover(null, null);
     }
 
     /**
@@ -1266,6 +1490,7 @@
       this.showDual = !!show;
       this.dualCurve.setAttribute({visible: this.showDual});
       this.unitCircle.setAttribute({visible: this.showDual});
+      if (!this.showDual) this.setHover(null, null);
       this.board.update();
     }
 
@@ -1511,6 +1736,8 @@
   PolyBasisController.marchingSquares = marchingSquares;
   PolyBasisController.dualOfTracedCurve = dualOfTracedCurve;
   PolyBasisController.dualPointOfLine = dualPointOfLine;
+  PolyBasisController.polyRoots = polyRoots;
+  PolyBasisController.tangencyCandidates = tangencyCandidates;
 
   root['PolyBasisController'] = PolyBasisController;
 

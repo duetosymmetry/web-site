@@ -219,6 +219,14 @@ p^\ast = \frac{\nabla f(p)}{p \cdot \nabla f(p)} .
 Check <a href="#viewDual">the box</a> to see the dual in green, along
 with the unit circle (dotted), which is its own dual.
 
+Hover the mouse over either curve to see a dual pair: a point $$p$$ on
+the curve (blue dot) and the point $$p^\ast$$ on the dual (green dot).
+The blue dashed line is the tangent line at $$p$$, which is the line
+represented by $$p^\ast$$.  The green dashed line is the line
+represented by $$p$$, namely $$p \cdot (x,y) = 1$$, and it is tangent
+to the dual curve at $$p^\ast$$.  That's duality working in both
+directions!
+
 Things to notice:
 * The dual of a conic is a conic.
 * Inflection points of the curve become *cusps* of the dual, and
