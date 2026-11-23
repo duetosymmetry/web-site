@@ -1,12 +1,12 @@
 ---
 title: Real algebraic curves toy
 categories: [tool]
-excerpt: Interactive toy for drawing plane curves through points, from a chosen basis of polynomials
+excerpt: Interactive toy for drawing plane curves through points, from a chosen set of polynomials
 tags: [interactive, algebra, polynomial, algebraic geometry]
 date: 2026-11-16
+modified: 2026-11-23
 jsxgraph: true
 published: true
-unlisted: true
 pinned: false
 ---
 
@@ -47,8 +47,9 @@ display: inline-block;
 
 </style>
 
-Grab the red dots and play around! Or jump to the
-[explanation](#explanation), or [try this](#things-to-try).
+Grab the red dots and play around!  You can choose from a preset list of
+polynomials, or type in your own.  Jump to the [explanation](#explanation), or
+[try this](#things-to-try).
 
 <div id="curvebox" class="jxgbox curvebox"></div>
 
@@ -60,7 +61,7 @@ Grab the red dots and play around! Or jump to the
 <select id="basisPreset"></select>
 </div>
 <div>
-<label for="basisInput">Basis polynomials (comma-separated, change me!):</label><br>
+<label for="basisInput">Set of polynomials (comma-separated, change me!):</label><br>
 <input type="text" id="basisInput" autocomplete="off" spellcheck="false">
 <input type="submit" value="Apply">
 </div>
@@ -99,21 +100,63 @@ Grab the red dots and play around! Or jump to the
 
 ## Explanation
 
-Pick a basis of *N* polynomials $$p_1(x,y), \ldots, p_N(x,y)$$, and
-consider the curves in the plane given by the zero sets of their
-linear combinations,
+Two points determine a line, and three points (that are not collinear) determine
+a circle.  How many points does it take to specify an ellipse or a hyperbola?
+Turns out to be 5, but why?
+
+Every line in the plane can be written in the form
 <div>
 \begin{align}
-f(x,y) = \sum_{i=1}^N c_i\, p_i(x,y) = 0 .
+0 = ax + by + c ,
 \end{align}
 </div>
-Rescaling all the $$c_i$$'s by the same nonzero number doesn't change
-the curve, so there are really only $$N-1$$ free parameters.  Requiring the
-curve to pass through a point $$(x_k, y_k)$$ gives one linear equation
-on the $$c_i$$'s.  So, $$N-1$$ points in general position determine
-exactly one curve in the family.
+but we get the same line if we scale each of $$ (a,b,c) \to (sa, sb, sc) $$, so
+there are really only two parameters here, not 3.  Similarly, the equation for a
+circle in the plane is
+<div>
+\begin{align}
+0 = (x-x_0)^2 + (y-y_0)^2 - R^2 ,
+\end{align}
+</div>
+which clearly has 3 parameters. We can rearrange this into
+<div>
+\begin{align}
+0 = a(x^2+y^2) + bx + cy + d ,
+\end{align}
+</div>
+but again multiplying the whole equation by a non-zero constant gives the same
+circle, so there are only 3 parameters, not 4. (Note that $$x^2$$ and $$y^2$$
+must have the same coefficient so we don't get an ellipse).
 
-There's a slick way to write down that curve: it is
+In these examples, we found that the number of points was the same as the number
+of polynomials you were adding together minus one, where we were counting that
+trailing constant as multiplying the polynomial 1.
+
+Let's generalize this.
+Pick a set of *N* polynomials $$p_1(x,y), \ldots, p_N(x,y)$$, take a linear
+combination, and consider the curves in the plane given by the zeros
+<div>
+\begin{align}
+f(x,y) = \sum_{k=1}^N c_k\, p_k(x,y) = 0 .
+\end{align}
+</div>
+Rescaling all the $$c_k$$'s by the same nonzero number doesn't change
+the curve, so there are morally only $$N-1$$ free parameters.
+(We're not allowed to include linearly-dependent polynomials; e.g. you can only
+include two of the three in the set $$\{ x^2, y^2, x^2 + y^2 \}$$, or else our
+problem would be degenerate.)
+
+How do you relate this to the $$N-1$$ points that go through the curve?  For
+each point $$p_i = (x_i, y_i)$$, you get an equation that the $$c_k$$'s have to
+satisfy, $$f(x_i, y_i) = 0$$.  This equation is *linear* in the $$c_k$$'s.  So
+we have $$N-1$$ equations, but we still have $$N$$ unknowns because we haven't
+fixed some overall scaling for the $$c_k$$'s.
+
+But, this *does* give us an algebraic equation that the curve has to satisfy.
+Say some *other* point $$q = (x,y)$$ is on that same curve that goes through the
+$$N-1$$ points $$\{ p_i \}$$.  Then we have $$N$$ equations for $$N$$ unknowns,
+and our linear system has a nontrivial solution (up to scale) exactly when this
+$$N\times N$$ determinant vanishes,
 <div>
 \begin{align}
 \label{eq:sysdet}
@@ -126,22 +169,26 @@ p_1(x_{N-1},y_{N-1}) & p_2(x_{N-1},y_{N-1}) & \cdots & p_N(x_{N-1},y_{N-1})
 \end{pmatrix} .
 \end{align}
 </div>
+Do you see where this comes from?
 Expanding along the first row shows this is a linear combination of
 the $$p_i$$'s.  And if you plug in $$(x,y) = (x_k,y_k)$$, two rows are
 equal, so the determinant vanishes: the curve passes through every
-point.  If the points are *not* in general position, every cofactor
-vanishes, and there's no unique curve (the toy will tell you).
+one of the $$\{ p_i \}$$'s.
 
 As you drag the points, the toy recomputes Eq. \eqref{eq:sysdet} and
 redraws the zero set.  You can choose one of the preset families, or
-type in your own basis, like `1, x, y^2 - x^3`.
+type in your own set, like `1, x, y^2 - x^3`.
+
+I was a bit cavaliear above, because my explanation breaks if you try to make
+a circle with three collinear points.  If you avoid that kind of breakdown, we
+say the points are "in general position."
 
 ## Things to try
 
 **Circles.**  Three points determine a circle.  Now line the three
-points up&mdash;what happens to the circle?  (Notice the basis
-includes $$x^2+y^2$$ as a single element, so the "circle" is allowed
-to degenerate.)
+points up---what happens to the circle?  The circle is allowed
+to degenerate, with its radius going off to infinity (the coefficient of
+$$x^2+y^2$$ vanishes), if the three points are collinear.
 
 **Conic sections.**  Five points determine a conic.  Find
 ellipses, parabolas, and hyperbolas.  Can you make the hyperbola
@@ -160,7 +207,7 @@ singular?
 To find out, check <a href="#viewSingular">the box</a> to view the
 singular locus.  While you drag a point, the dashed red curves show
 where *that* point would have to be for the curve to be singular, and
-the red &times;'s mark where the singularities would be.
+the red ×'s mark where the singularities would be.
 See [below](#the-singular-locus) for how this works.
 
 ## The singular locus
@@ -168,7 +215,7 @@ See [below](#the-singular-locus) for how this works.
 While you drag one point $$a$$, the other $$N-2$$ points stay fixed.
 Requiring a curve to pass through those $$N-2$$ points leaves a
 2-dimensional space of coefficients, so the curves through them form a
-*pencil*,
+linear system that is called a *pencil*,
 <div>
 \begin{align}
 \lambda\, g_1(x,y) + \mu\, g_2(x,y) = 0 ,
@@ -196,12 +243,12 @@ In the family of circles, the "circle" through three collinear points
 is a line, but as a degree-2 curve it's really that line together with
 the line at infinity, which is singular where the two meet.  So the
 toy also looks for members whose (homogeneous) gradient vanishes at a
-point at infinity.  These are drawn too, but without an &times;.
+point at infinity.  These are drawn too, but without an ×.
 
 Try it with conic sections: with four points fixed, the singular
 conics through them are the three pairs of lines through them.  So
 the singular locus of the fifth point is the six lines joining pairs
-of the four fixed points&mdash;exactly where the fifth point is collinear
+of the four fixed points---exactly where the fifth point is collinear
 with two others.
 
 ## The dual curve
@@ -248,7 +295,14 @@ picture, such as the asymptotes.
 
 ## Acknowledgments
 
-Thanks to Allen Knutson for the idea.
+Thanks to Allen Knutson for the idea, all the way back in 2019! This was
+originally a Mathematica notebook.  I finally caved and started using Claude
+code, which I used to convert the Mathematica code to javascript so everyone
+could enjoy.
+
+Between then and now, Taran Knutson and Allen Knutson made this wonderful YouTube
+video on this topic:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iUUm0sKLoiE?si=xxS64luFDhHbiCre" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This toy makes use of [JSXGraph](https://jsxgraph.org/), whose
 implicit curve plotter draws the zero sets.
