@@ -295,7 +295,7 @@ picture, such as the asymptotes.
 
 ## Acknowledgments
 
-Thanks to Allen Knutson for the idea, all the way back in 2019! This was
+Thanks to [Allen Knutson](https://pi.math.cornell.edu/~allenk/) for the idea, all the way back in 2019! This was
 originally a Mathematica notebook.  I finally caved and started using Claude
 code, which I used to convert the Mathematica code to javascript so everyone
 could enjoy.
