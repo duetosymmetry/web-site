@@ -147,14 +147,14 @@ include two of the three in the set $$\{ x^2, y^2, x^2 + y^2 \}$$, or else our
 problem would be degenerate.)
 
 How do you relate this to the $$N-1$$ points that go through the curve?  For
-each point $$p_i = (x_i, y_i)$$, you get an equation that the $$c_k$$'s have to
+each point $$(x_i, y_i)$$, you get an equation that the $$c_k$$'s have to
 satisfy, $$f(x_i, y_i) = 0$$.  This equation is *linear* in the $$c_k$$'s.  So
 we have $$N-1$$ equations, but we still have $$N$$ unknowns because we haven't
 fixed some overall scaling for the $$c_k$$'s.
 
 But, this *does* give us an algebraic equation that the curve has to satisfy.
-Say some *other* point $$q = (x,y)$$ is on that same curve that goes through the
-$$N-1$$ points $$\{ p_i \}$$.  Then we have $$N$$ equations for $$N$$ unknowns,
+Say some *other* point $$(x,y)$$ is on that same curve that goes through the
+$$N-1$$ points $$\{ (x_i, y_i) \}$$.  Then we have $$N$$ equations for $$N$$ unknowns,
 and our linear system has a nontrivial solution (up to scale) exactly when this
 $$N\times N$$ determinant vanishes,
 <div>
@@ -173,7 +173,7 @@ Do you see where this comes from?
 Expanding along the first row shows this is a linear combination of
 the $$p_i$$'s.  And if you plug in $$(x,y) = (x_k,y_k)$$, two rows are
 equal, so the determinant vanishes: the curve passes through every
-one of the $$\{ p_i \}$$'s.
+one of the $$\{ (x_i, y_i) \}$$'s.
 
 As you drag the points, the toy recomputes Eq. \eqref{eq:sysdet} and
 redraws the zero set.  You can choose one of the preset families, or
